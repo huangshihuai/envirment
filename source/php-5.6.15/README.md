@@ -1,2 +1,2 @@
-php-xx.xx 是具体版本
-php 是一个链接
+php-xx.xx 是php的文件目录
+php 是一个指向php-xx.xx的链接
