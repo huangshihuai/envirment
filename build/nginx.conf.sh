@@ -1,17 +1,15 @@
 #!/bin/sh
 nowPath=`pwd`
-sourcePath="$nowPath/../source/nginx/"
-webPath="$nowPath/../webserver/nginx"
-
 if [ -d "$webPath" ]; then
     rm -rf "$webPath"
 fi
-mkdir "$webPath"
-mkdir "$webPath/sbin"
-mkdir 
+
+mkdir $webPath && mkdir "$webPath/sbin/" && mkdir ""
+
+sourcePath=$(cd "$nowPath/../source/nginx/"; pwd)
+webPath=$(cd "$nowPath/../webserver/nginx"; pwd)
 
 cd "$sourcePath"
-
 ./configure -prefix=$webPath -sbin-path=
 make && make install
 
