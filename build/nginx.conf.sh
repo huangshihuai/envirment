@@ -1,16 +1,81 @@
-#!/bin/sh
-nowPath=`pwd`
-if [ -d "$webPath" ]; then
-    rm -rf "$webPath"
-fi
+#!/bin/bash
+function userGroup(){
+echo -n "输入user:"
+read user
+echo -n "输入group:"
+read group
+echo -n "user:$user\0group:$group\n如果输入没错请按回车,如果输入错误请Ctrl+C:"
+read temp
+}
 
-mkdir $webPath && mkdir "$webPath/sbin/" && mkdir ""
+function createDir() {
+    nowPath=`pwd`
+    webPath="$nowPath/../webserver/nginx"
+    if [ -d "$webPath" ]; then
+        echo "删除nginx文件:$webPath"
+        rm -rf "$webPath"
+    fi
+    # 创建nginx基本目录
+    dir="$webPath $webPath/sbin/ $webPath/conf/ $webPath/cache"
+    echo "创建nginx文件夹:$dir"
+    mkdir $dir
+   
+    # 创建缓存文件目录
+    cache=$(cd "$webPath/cache"; pwd)
+    dir="$cache/client_body $cache/fastcgi $cache/proxy $cache/scgi $cache/uwsgi"
+    echo "创建nginx缓存文件夹:$dir"
+    mkdir $dir
+}
+function setLibrary() {
+    name=$1
+    while [ true ]
+    do
+        echo -n "请输入$name 的文件路径:"
+        read pathDir
+        # 存在文件夹
+        if [ -d "$pathDir" ];then
+            echo -n "请确定文件路径:$pathDir?,重新输入'r',否则输入任意键: "
+            read answer
+            # 输入不等于r
+            if [ "$answer" != "r" ];then
+                break;
+            fi
+        else
+            echo "\"$pathDir\"不是一个文件夹"
+        fi
+    done
+}
+# 输入用户和组
+userGroup
+# 创建必要的文件夹
+createDir
 
+# 设置变量
+
+# nginx 文件路径
 sourcePath=$(cd "$nowPath/../source/nginx/"; pwd)
+# web服务器的路径
 webPath=$(cd "$nowPath/../webserver/nginx"; pwd)
+# sbin 路径
+sbinPath=$(cd "$webPath/sbin"; pwd)
+# 配置文件路径
+confPath=$(cd "$webPath/conf"; pwd)
+# 存储nginx pid路径
+varPath=$(cd "$nowPath/../var"; pwd)
+# 日志路径
+logPath=$(cd "$nowPath/../log"; pwd)
+# 设置openssl路径
+setLibrary "openssl"
+openssl="$pathDir"
+# 设置zlib路径
+setLibrary "zlib"
+zlib="$pathDir"
+#设置pcre文件路径
+setLibrary "pcre"
+pcre="$pathDir"
 
 cd "$sourcePath"
-./configure -prefix=$webPath -sbin-path=
-make && make install
+./configure --prefix=$webPath --sbin-path="$sbinPath/nginx" --conf-path="$confPath/nginx.conf" --error-log-path="$logPath/error.log" --http-log-path="$logPath/access.log" --pid-path="$varPath/nginx.pid" --lock-path="$varPath/nginx.lock" --http-client-body-temp-path="$cache/clientbody" --http-fastcgi-temp-path="$cache/proxy" --http-uwsgi-temp-path="$cache/uwsgi" --http-scgi-temp-path="$cache/scgi" --http-fastcgi-temp-path="$cache/fastcgi" --user="$user" --group="$group" --without-select_module --without-poll_module --with-file-aio --with-http_realip_module --with-http_ssl_module --with-http_gzip_static_module --with-http_stub_status_module --without-http_ssi_module --without-http_userid_module --without-http_geo_module --without-http_empty_gif_module --without-http_map_module --without-mail_pop3_module --without-mail_imap_module --without-mail_smtp_module --with-pcre="$pcre" --with-zlib="$zlib" --with-openssl="$openssl"
+sudo make && sudo make install
 
 cd "$nginxPath"
