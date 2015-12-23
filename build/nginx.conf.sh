@@ -1,12 +1,12 @@
 #!/bin/bash
 # 设置nginx用户,所有组
 function userGroup(){
-echo -n "输入user:"
-read user
-echo -n "输入group:"
-read group
-echo -n "user:$user\0group:$group\n如果输入没错请按回车,如果输入错误请Ctrl+C:"
-read temp
+    echo -n "输入user:"
+    read user
+    echo -n "输入group:"
+    read group
+    echo -n "user:$user\0group:$group\n如果输入没错请按回车,如果输入错误请Ctrl+C:"
+    read temp
 }
 # 创建nginx所需要的文件
 function createDir() {
@@ -61,9 +61,6 @@ createDir
 #设置pcre文件路径
 # setLibrary "pcre"
 # pcre="$pathDir"
-openssl="/home/hsh/nginx-with/openssl-1.0.1c"
-zlib="/home/hsh/nginx-with/zlib-1.2.8"
-pcre="/home/hsh/nginx-with/pcre2-10.20"
 
 # 设置变量
 # nginx 文件路径
@@ -79,7 +76,13 @@ varPath=$(cd "$nowPath/../var"; pwd)
 # 日志路径
 logPath=$(cd "$nowPath/../log"; pwd)
 
+openssl=$(cd "$sourcePath/../depend/nginx/openssl"; pwd)
+zlib=$(cd "$sourcePath/../depend/nginx/zlib"; pwd)
+pcre=$(cd "$sourcePath/../depend/nginx/pcre"; pwd)
+
 cd "$sourcePath"
+# nginx-1.8.0 删除Makefile文件以及objs文件夹
+sudo make clean
 ./configure --prefix=$webPath --sbin-path="$sbinPath/nginx" --conf-path="$confPath/nginx.conf" --error-log-path="$logPath/error.log" --http-log-path="$logPath/access.log" --pid-path="$varPath/nginx.pid" --lock-path="$varPath/nginx.lock" --http-client-body-temp-path="$cache/clientbody" --http-fastcgi-temp-path="$cache/proxy" --http-uwsgi-temp-path="$cache/uwsgi" --http-scgi-temp-path="$cache/scgi" --http-fastcgi-temp-path="$cache/fastcgi" --user="$user" --group="$group" --with-ipv6 --without-select_module --without-poll_module --with-file-aio --with-http_realip_module --with-http_ssl_module --with-http_gzip_static_module --with-http_stub_status_module --without-http_ssi_module --without-http_userid_module --without-http_geo_module --without-http_empty_gif_module --without-http_map_module --without-mail_pop3_module --without-mail_imap_module --without-mail_smtp_module --with-md5-asm --with-md5="$openssl" --with-sha1-asm --with-sha1="$openssl" --with-pcre="$pcre" --with-pcre-jit --with-zlib="$zlib" --with-openssl="$openssl" --without-http_autoindex_module --without-http_auth_basic_module --without-http_browser_module --without-http_limit_conn_module --without-http_limit_req_module --without-http_memcached_module --without-http_referer_module --without-http_proxy_module --without-http_scgi_module --without-http_split_clients_module --without-http_upstream_ip_hash_module --without-http_uwsgi_module
 #--add-module="/home/hsh/envirment/source/nginx-upload-0.9.0-0/nginx-upload-progress-module" --add-module="$sourcePath/nginx-upstream-fair"
 sudo make && sudo make install
