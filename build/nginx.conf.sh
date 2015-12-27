@@ -14,7 +14,7 @@ function createDir() {
     webPath="$nowPath/../webserver/nginx"
     if [ -d "$webPath" ]; then
         echo "删除nginx文件:$webPath"
-        rm -rf "$webPath"
+        sudo rm -rf "$webPath"
     fi
     # 创建nginx基本目录
     dir="$webPath $webPath/sbin/ $webPath/conf/ $webPath/cache"
