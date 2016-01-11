@@ -17,20 +17,59 @@ function setDebug() {
 setDebug
 dir=`pwd`
 phpPath=$(cd "$dir/../php"; pwd)
+depend=$(cd "$dir/../source/depend"; pwd)
 cd $dir/../source/php
 
+# 删除Makefile
+if [ -f "Makefile" ]; then
+    sudo make clean
+    rm Makefile
+fi
+
+openssl=$(cd "$depend/nginx/openssl"; pwd)
+
 # 编译所有的扩展
-./configure --prefix=$phpPath --sbindir=$phpPath/bin/ --with-config-file-path=$phpPath/etc/ --with-config-file-scan-dir=$phpPath/etc/ --libexecdir=$phpPath/ext/ --with-curl --with-mysql --with-zlib --with-gd --with-mcrypt --with-jpeg-dir --with-png-dir --with-xpm-dir --with-gettext --with-freetype-dir --with-bz2 --with-iconv-dir --with-libxml-dir --enable-fpm --with-fpm-user=www --with-fpm-group=www --disable-pdo --enable-mbstring --enable-sockets --enable-soap --enable-gd-native-ttf --enable-gd-jis-conv --enable-ftp --enable-zip --enable-calendar --enable-mbstring --enable-exif --enable-fd-setsize=4096 --disable-ipv6 --enable-maintainer-zts $debug
+./configure --prefix=$phpPath \
+    --with-config-file-path=$phpPath/etc \
+    --with-config-file-scan-dir=$phpPath/ext \
+    --enable-bcmath \
+    --enable-fpm \
+    --enable-gd-native-ttf \
+    --enable-mbstring \
+    --enable-shmop \
+    --enable-soap \
+    --enable-sockets \
+    --enable-sysvsem \
+    --enable-pcntl \
+    --enable-zip \
+    --enable-gd-jis-conv \
+    --enable-ftp \
+    --enable-calendar \
+    --enable-exif \
+    --enable-fd-setsize=4096 \
+    --with-gd \
+    --with-openssl \
+    --with-zlib \
+    --with-pear \
+    --with-xmlrpc \
+    --with-curl \
+    --with-mcrypt \
+    --with-t1lib \
+    --with-freetype-dir \
+    --with-jpeg-dir \
+    --with-png-dir \
+    --with-libxml-dir \
+    --with-mysql \
+    --with-pdo-mysql \
+    --with-xpm-dir \
+    --with-gettext \
+    --with-freetype-dir \
+    --with-iconv-dir \
+    --with-fpm-user=www \
+    --with-fpm-group=www \
+    $debug
 
-# 自定义扩展
-#./configure --prefix=$phpPath --with-config-file-path=$phpPath/etc --with-curl --with-mysql --with-zlib --with-gd --with-mcrypt --with-jpeg-dir --with-png-dir --with-xpm-dir --with-gettext --with-freetype-dir --with-bz2 --with-iconv-dir --with-libxml-dir --enable-fpm --with-fpm-user=www --with-fpm-group=www --disable-pdo --enable-mbstring --enable-sockets --enable-soap --enable-gd-native-ttf --enable-gd-jis-conv --enable-ftp --enable-zip --enable-calendar --enable-mbstring --enable-exif --enable-fd-setsize=4096 --disable-ipv6 --enable-maintainer-zts $debug
-
-make clean && make && make install
-echo $s
+if [ -f "Makefile" ]; then
+    make && make install
+fi
 cd $dir
-# 系统自动检测是否安装,也可以自己安装指定路径
-#    --with-mysql=/usr/local/mysql
-#    --with-pcre-dir=/usr/local/pcre
-#    ---with-zlib=/usr/local/zlib
-#    ---with-zlib-dir=/usr/local/zlib
-#    ---with-curl=/usr/local/curl

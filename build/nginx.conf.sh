@@ -87,7 +87,37 @@ upstream_fair=$(cd "$sourcePath/../depend/nginx/nginx-upstream-fair"; pwd)
 cd "$sourcePath"
 # nginx-1.8.0 删除Makefile文件以及objs文件夹
 sudo make clean
-./configure --prefix=$webPath --sbin-path="$sbinPath/nginx" --conf-path="$confPath/nginx.conf" --error-log-path="$logPath/error.log" --http-log-path="$logPath/access.log" --pid-path="$varPath/nginx.pid" --lock-path="$varPath/nginx.lock" --http-client-body-temp-path="$cache/client_body" --http-fastcgi-temp-path="$cache/proxy" --http-uwsgi-temp-path="$cache/uwsgi" --http-scgi-temp-path="$cache/scgi" --http-fastcgi-temp-path="$cache/fastcgi" --user="$user" --group="$group" --with-ipv6 --without-select_module --without-poll_module --with-file-aio --with-http_realip_module --with-http_ssl_module --with-http_gzip_static_module --with-http_stub_status_module --without-http_ssi_module --without-http_userid_module --without-http_geo_module --without-http_empty_gif_module --without-http_map_module --without-mail_pop3_module --without-mail_imap_module --without-mail_smtp_module --with-md5-asm --with-md5="$openssl" --with-sha1-asm --with-sha1="$openssl" --with-openssl="$openssl" --with-pcre="$pcre" --with-pcre-jit --with-zlib="$zlib" --without-http_autoindex_module --without-http_auth_basic_module --without-http_browser_module --without-http_limit_conn_module --without-http_limit_req_module --without-http_memcached_module --without-http_referer_module --without-http_proxy_module --without-http_scgi_module --without-http_split_clients_module --without-http_upstream_ip_hash_module --without-http_uwsgi_module --add-module="$upload_progress" --add-module="$upstream_fair"
+./configure --prefix=$webPath \
+    --sbin-path="$sbinPath/nginx" \
+    --conf-path="$confPath/nginx.conf" \
+    --error-log-path="$logPath/error.log" \
+    --http-log-path="$logPath/access.log" \
+    --pid-path="$varPath/nginx.pid" \
+    --lock-path="$varPath/nginx.lock" \
+    --http-client-body-temp-path="$cache/client_body" \
+    --http-fastcgi-temp-path="$cache/proxy" \
+    --http-uwsgi-temp-path="$cache/uwsgi" \
+    --http-scgi-temp-path="$cache/scgi" \
+    --http-fastcgi-temp-path="$cache/fastcgi" \
+    --user="$user" \
+    --group="$group" \
+    --with-ipv6 \
+    --without-select_module \
+    --without-poll_module \
+    --with-file-aio \
+    --with-http_realip_module \
+    --with-http_ssl_module \
+    --with-http_gzip_static_module \
+    --with-http_stub_status_module \
+    --without-http_ssi_module \
+    --without-http_userid_module \
+    --without-http_geo_module \
+    --without-http_empty_gif_module \
+    --without-http_map_module \
+    --without-mail_pop3_module \
+    --without-mail_imap_module \
+    --without-mail_smtp_module \
+    --with-md5-asm --with-md5="$openssl" --with-sha1-asm --with-sha1="$openssl" --with-openssl="$openssl" --with-pcre="$pcre" --with-pcre-jit --with-zlib="$zlib" --without-http_autoindex_module --without-http_auth_basic_module --without-http_browser_module --without-http_limit_conn_module --without-http_limit_req_module --without-http_memcached_module --without-http_referer_module --without-http_proxy_module --without-http_scgi_module --without-http_split_clients_module --without-http_upstream_ip_hash_module --without-http_uwsgi_module --add-module="$upload_progress" --add-module="$upstream_fair"
 sudo make && sudo make install
 
 cd "$nowPath"
