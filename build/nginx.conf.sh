@@ -81,8 +81,8 @@ zlib=$(cd "$sourcePath/../depend/zlib"; pwd)
 pcre=$(cd "$sourcePath/../depend/pcre"; pwd)
 
 # nginx 的其他模块
-upload_progress=$(cd "$sourcePath/../nginx/nginx-upload-progress-module"; pwd)
-upstream_fair=$(cd "$sourcePath/../nginx/nginx-upstream-fair"; pwd)
+upload_progress=$(cd "$sourcePath/../depend/nginx-upload-progress-module"; pwd)
+upstream_fair=$(cd "$sourcePath/../depend/nginx-upstream-fair"; pwd)
 
 cd "$sourcePath"
 # nginx-1.8.0 删除Makefile文件以及objs文件夹
@@ -131,12 +131,11 @@ sudo make clean
     --without-http_memcached_module \
     --without-http_referer_module \
     --without-http_proxy_module \
-    --without-http_scgi_module \
+    --without-http_scgi_module
     --without-http_split_clients_module \
     --without-http_upstream_ip_hash_module \
     --without-http_uwsgi_module \
     --add-module="$upload_progress" \
     --add-module="$upstream_fair"
 make && make install
-
 cd "$nowPath"
