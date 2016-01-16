@@ -76,13 +76,13 @@ varPath=$(cd "$nowPath/../var"; pwd)
 # 日志路径
 logPath=$(cd "$nowPath/../log"; pwd)
 
-openssl=$(cd "$sourcePath/../depend/nginx/openssl"; pwd)
-zlib=$(cd "$sourcePath/../depend/nginx/zlib"; pwd)
-pcre=$(cd "$sourcePath/../depend/nginx/pcre"; pwd)
+openssl=$(cd "$sourcePath/../depend/openssl"; pwd)
+zlib=$(cd "$sourcePath/../depend/zlib"; pwd)
+pcre=$(cd "$sourcePath/../depend/pcre"; pwd)
 
 # nginx 的其他模块
-upload_progress=$(cd "$sourcePath/../depend/nginx/nginx-upload-progress-module"; pwd)
-upstream_fair=$(cd "$sourcePath/../depend/nginx/nginx-upstream-fair"; pwd)
+upload_progress=$(cd "$sourcePath/../nginx/nginx-upload-progress-module"; pwd)
+upstream_fair=$(cd "$sourcePath/../nginx/nginx-upstream-fair"; pwd)
 
 cd "$sourcePath"
 # nginx-1.8.0 删除Makefile文件以及objs文件夹
@@ -117,7 +117,26 @@ sudo make clean
     --without-mail_pop3_module \
     --without-mail_imap_module \
     --without-mail_smtp_module \
-    --with-md5-asm --with-md5="$openssl" --with-sha1-asm --with-sha1="$openssl" --with-openssl="$openssl" --with-pcre="$pcre" --with-pcre-jit --with-zlib="$zlib" --without-http_autoindex_module --without-http_auth_basic_module --without-http_browser_module --without-http_limit_conn_module --without-http_limit_req_module --without-http_memcached_module --without-http_referer_module --without-http_proxy_module --without-http_scgi_module --without-http_split_clients_module --without-http_upstream_ip_hash_module --without-http_uwsgi_module --add-module="$upload_progress" --add-module="$upstream_fair"
-sudo make && sudo make install
+    --with-md5-asm --with-md5="$openssl" \
+    --with-sha1-asm --with-sha1="$openssl" \
+    --with-openssl="$openssl" \
+    --with-pcre="$pcre" \
+    --with-pcre-jit \
+    --with-zlib="$zlib" \
+    --without-http_autoindex_module \
+    --without-http_auth_basic_module \
+    --without-http_browser_module \
+    --without-http_limit_conn_module \
+    --without-http_limit_req_module \
+    --without-http_memcached_module \
+    --without-http_referer_module \
+    --without-http_proxy_module \
+    --without-http_scgi_module \
+    --without-http_split_clients_module \
+    --without-http_upstream_ip_hash_module \
+    --without-http_uwsgi_module \
+    --add-module="$upload_progress" \
+    --add-module="$upstream_fair"
+make && make install
 
 cd "$nowPath"
