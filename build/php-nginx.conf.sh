@@ -70,6 +70,6 @@ openssl=$(cd "$depend/nginx/openssl"; pwd)
     $debug
 
 if [ -f "Makefile" ]; then
-    make && make install
+    sudo make && make install
 fi
 cd $dir

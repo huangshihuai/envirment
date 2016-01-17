@@ -137,5 +137,5 @@ sudo make clean
     --without-http_uwsgi_module \
     --add-module="$upload_progress" \
     --add-module="$upstream_fair"
-make && make install
+sudo make && make install
 cd "$nowPath"
