@@ -1,0 +1,7 @@
+# 安装基本依赖库
+opensslName="opensddsl-1.0.2e"
+opensslPrefix="--prefix="
+
+curlName="curl-7.43.0"
+curlPrefix="--prefix=$out"
+curlSSL="--with-ssl=$out"

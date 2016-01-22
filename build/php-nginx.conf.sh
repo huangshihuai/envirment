@@ -52,7 +52,7 @@ openssl=$(cd "$depend/nginx/openssl"; pwd)
     --with-zlib \
     --with-pear \
     --with-xmlrpc \
-#    --with-curl \
+    --with-curl \
     --with-mcrypt \
     --with-t1lib \
     --with-freetype-dir \
