@@ -1,7 +1,7 @@
 #!/bin/bash
 
 localPath=`pwd`;
-dependSource="$localPath/../source/depend/PackFile"
+dependSource="$localPath/../source/depend"
 source ./depend_config
 
 #检查按依赖包路径
