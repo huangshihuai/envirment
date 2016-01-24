@@ -26,7 +26,8 @@ if [ -f "Makefile" ]; then
     rm Makefile
 fi
 
-openssl=$(cd "$depend/nginx/openssl"; pwd)
+openssl=$(cd "$dir/../depend/openssl"; pwd)
+curl=$(cd "$dir/../depend/curl"; pwd)
 
 # 编译所有的扩展
 ./configure --prefix=$phpPath \
@@ -48,11 +49,11 @@ openssl=$(cd "$depend/nginx/openssl"; pwd)
     --enable-exif \
     --enable-fd-setsize=4096 \
     --with-gd \
-    --with-openssl \
+    --with-openssl="$openssl" \
     --with-zlib \
     --with-pear \
     --with-xmlrpc \
-    --with-curl \
+    --with-curl="$curl" \
     --with-mcrypt \
     --with-t1lib \
     --with-freetype-dir \
