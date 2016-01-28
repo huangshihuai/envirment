@@ -5,9 +5,25 @@ localPath=`pwd`
 opensslInstall=""
 # 文件路径
 opensslFile=""
+tmp=""
+
+function getConfig() {
+    local opensslConfig="./config/openssl_config"
+    if [ ! -f "$opensslConfig" ]; then
+        echo "this config not fount,line:$LINENO"
+    fi
+}
 
 function checkDir() {
-    local dependSource="$localPath/../source/depend/openssl"
+echo $LINENO
+exit
+    local sources=`cat ./config/openssl_config | grep sources`
+    sources=`echo $sources | cut -d ':' -f 2`
+    if [ -z "$sources" ]; then
+        echo 'this config is null'
+        exit
+    fi
+    local dependSource="$localPath/..$sources"
     if [ ! -d $localPath ]; then
         echo "dir not fount: $localPath";
         exit
