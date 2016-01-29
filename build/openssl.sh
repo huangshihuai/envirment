@@ -5,20 +5,10 @@ localPath=`pwd`
 opensslInstall=""
 # 文件路径
 opensslFile=""
-tmp=""
-
-function getConfig() {
-    local opensslConfig="./config/openssl_config"
-    if [ ! -f "$opensslConfig" ]; then
-        echo "this config not fount,line:$LINENO"
-    fi
-}
 
 function checkDir() {
-echo $LINENO
-exit
     local sources=`cat ./config/openssl_config | grep sources`
-    sources=`echo $sources | cut -d ':' -f 2`
+    local sources=`echo $sources | cut -d ':' -f 2`
     if [ -z "$sources" ]; then
         echo 'this config is null'
         exit
@@ -32,7 +22,9 @@ exit
 }
 
 function delOpensslDir() {
-    local dependInstall="$localPath/../depend/openssl"
+    local install=`cat ./config/openssl_config | grep install`
+    local install=`echo $install | cut -d ':' -f 2`
+    local dependInstall="$localPath/..$install"
     if [ -d "$dependInstall" ]; then
         sudo rm -rf "$dependInstall"
     fi
@@ -43,7 +35,7 @@ function delOpensslDir() {
 function makeInstall() {
     cd $opensslFile
     if [ -f "Makefile" ]; then
-         rm MakeFile
+         rm "Makefile"
      fi
     ./config --prefix="$opensslInstall" \
         --openssldir="$opensslInstall/ssl"

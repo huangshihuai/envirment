@@ -1,31 +1,46 @@
 #!/bin/bash
 
-# 引入 openssl 文件
-source ./openssl.sh
+function getOpensslConfig() {
+    if [ ! -n "$1" ]; then
+        local localPath=`pwd`
+    else
+        local localPath=$1
+    fi
+    local install=`cat "./config/openssl_config" | grep install`
+    local install=`echo $install | cut -d ':' -f 2`   
+    opensslInstall="$localPath/..$install"
+    if [ ! -d "$opensslInstall" ];then
+        echo "openssl install path not fount: $opensslInstall"
+        exit
+    fi
+    opensslInstall=$(cd "$opensslInstall"; pwd)
+    opensslLib="$opensslInstall/lib"
+    if [ ! -d "$opensslLib" ];then
+        echo "openssl lib path not fount: $opensslInstall/lib"
+        exit
+    fi
+    opensslLib=$(cd "$opensslLib"; pwd)
+}
 
 function checkDir() {
     # 检查curl文件
-    local dependSource="$localPath/../source/depend/curl"
+    local localPath=`pwd`
+    local sources=`cat "./config/curl_config" | grep sources`
+    local sources=`echo $sources | cut -d ':' -f 2`
+    local dependSource="$localPath/..$sources"
     if [ ! -d $localPath ]; then
         echo "dir not fount: $localPath";
         exit
     fi
     curlFile=$(cd $dependSource; pwd)
-    # 检查openssl是否安装
-    if [ ! -d "$opensslInstall" ]; then
-        echo "openssl install path not fount: $opensslInstall"
-        exit
-    fi
-    # 检查openssl库文件
-    if [ ! -d "$opensslInstall/lib" ]; then
-        echo "openssl lib path not fount: $opensslInstall/lib"
-        exit
-    fi
-    opensslLib=$(cd "$opensslInstall/lib"; pwd)
+    getOpensslConfig $localPath
 }
 
 function delCurlDir() {
-    local dependInstall="$localPath/../depend/curl"
+    local localPath=`pwd`
+    local install=`cat "./config/curl_config" | grep install`
+    local install=`echo $install | cut -d ':' -f 2`
+    local dependInstall="$localPath/..$install"
     if [ -d "$dependInstall" ]; then
         sudo rm -rf "$dependInstall"
     fi
@@ -36,9 +51,9 @@ function delCurlDir() {
 function makeInstall() {
     cd $curlFile
     if [ -f "Makefile" ]; then
-        rm Makefile
+        rm "Makefile"
     fi
-    ./buildconf
+    ./buildconf && 
     ./configure --prefix="$curlInstall" \
         --with-zlib \
         --with-ssl="$opensslLib"
