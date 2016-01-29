@@ -1,0 +1,3 @@
+sources:/source/depend/lpng
+install:/depend/lpng
+makeFilePath:./scripts/makefile.linux

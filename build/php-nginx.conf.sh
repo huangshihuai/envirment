@@ -14,7 +14,8 @@ function setDebug() {
         fi
     done
 }
-setDebug
+#setDebug
+debug="--enable-debug"
 dir=`pwd`
 phpPath=$(cd "$dir/../php"; pwd)
 depend=$(cd "$dir/../source/depend"; pwd)
@@ -23,12 +24,13 @@ cd $dir/../source/php
 # 删除Makefile
 if [ -f "Makefile" ]; then
     sudo make clean
-    rm Makefile
+    rm "Makefile"
 fi
 
 openssl=$(cd "$dir/../depend/openssl"; pwd)
 curl=$(cd "$dir/../depend/curl"; pwd)
-
+t1lib=$(cd "$dir/../depend/t1lib"; pwd)
+zlib=$(cd "$dir/../depend/zlib"; pwd)
 # 编译所有的扩展
 ./configure --prefix=$phpPath \
     --with-config-file-path=$phpPath/etc \
@@ -50,12 +52,12 @@ curl=$(cd "$dir/../depend/curl"; pwd)
     --enable-fd-setsize=4096 \
     --with-gd \
     --with-openssl="$openssl" \
-    --with-zlib \
+    --with-zlib="$zlib" \
     --with-pear \
     --with-xmlrpc \
     --with-curl="$curl" \
     --with-mcrypt \
-    --with-t1lib \
+    --with-t1lib=$t1lib \
     --with-freetype-dir \
     --with-jpeg-dir \
     --with-png-dir \
@@ -69,7 +71,7 @@ curl=$(cd "$dir/../depend/curl"; pwd)
     --with-fpm-user=www \
     --with-fpm-group=www \
     $debug
-
+exit
 if [ -f "Makefile" ]; then
     make && make install
 fi
