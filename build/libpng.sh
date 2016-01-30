@@ -6,7 +6,7 @@ Install=""
 # 文件路径
 File=""
 
-config="./config/lpng_config"
+config="./config/libpng_config"
 
 if [ -n "$1" ]; then
     if [ -f "$s1" ]; then
@@ -14,7 +14,39 @@ if [ -n "$1" ]; then
     fi
 fi
 
+function checkFile() {
+    if [ ! -f "$1" ]; then
+        echo "'$1' file not fount"
+        exit
+    fi
+}
+
 function checkDir() {
+    if [ ! -d "$1" ]; then
+        echo "'$1' dir not fount"
+    fi
+}
+
+function checkStrIsNull() {
+    if [ -z "$1" ]; then
+        echo "this config is null"
+        exit
+    fi
+}
+
+function checkZlib() {
+    local zlibConfig="./config/zlib_config"
+    checkFile $zlibConfig
+    local zlib=`cat "$zlibConfig" | grep install`
+    checkStrIsNull $zlib
+    local zlib=`echo "$zlib" | cut -d ':' -f 2`
+    checkStrIsNull $zlib
+    local zlib="$localPath/..$zlib"
+    checkDir "$zlib"
+    zlibInstall=$(cd "$zlib"; pwd)
+}
+
+function checkSource() {
     local sources=`cat "$config" | grep sources`
     local sources=`echo "$sources" | cut -d ':' -f 2`
     if [ -z "$sources" ]; then
@@ -29,7 +61,7 @@ function checkDir() {
     File=$(cd $dependSource; pwd)
 }
 
-function delOpensslDir() {
+function installProduct() {
     local install=`cat "$config" | grep install`
     local install=`echo "$install" | cut -d ':' -f 2`
     local dependInstall="$localPath/..$install"
@@ -41,23 +73,19 @@ function delOpensslDir() {
 }
 
 function makeInstall() {
-     # 获取makefile文件路径
-     local makePath=`cat "$config" | grep makeFilePath`
-     local makePath=`echo "$makePath" | cut -d ':' -f 2`
      cd $File
      if [ -f "Makefile" ]; then
          sudo make clean
          sudo rm "Makefile"
      fi
-     if [ ! -f "$makePath" ];then
-         echo "not fount makefile:$makePath"
-         exit
-     fi
-     cp "$makePath" "./Makefile"
-     sudo make clean && make && make install DESTDIR="$Install"
+     ./configure --prefix="$Install" \
+         --enable-shared \
+         --with-zlib-prefix="$zlibInstall"
+     sudo make clean && make && make install
      cd $localPath
  }
 
-checkDir
-delOpensslDir
+checkZlib
+checkSource
+installProduct
 makeInstall

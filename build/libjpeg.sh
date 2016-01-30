@@ -6,7 +6,7 @@ Install=""
 # 文件路径
 File=""
 
-config="./config/libgd_config"
+config="./config/libjpeg_config"
 
 if [ -n "$1" ]; then
     if [ -f "$s1" ]; then
@@ -32,33 +32,6 @@ function checkStrIsNull() {
         echo "this config is null"
         exit
     fi
-}
-
-function checkConfig() {
-    checkFile "$1"
-    conf="$1"
-    local install=`cat "$conf" | grep install`
-    checkStrIsNull $install
-    local install=`echo "$install" | cut -d ':' -f 2`
-    checkStrIsNull "$install"
-    local install="$localPath/..$install"
-    checkDir "$install"
-    local gdout=$(cd "$install"; pwd)
-    libgd=`cat "$conf" | grep libgd`
-    checkStrIsNull "$libgd"
-    libgd=${libgd//.gdout/$gdout}
-    libgd=`echo "$libgd" | cut -d ':' -f 2`
-}
-
-function getDepend() {
-    withGd=""
-    local configs="libjpeg_config libpng_config libfreetype_config libtiff_config"
-    local config=""
-    for config in $configs
-    do
-        checkConfig "./config/$config"
-        withGd="${withGd}"" ""${libgd}"
-    done
 }
 
 function checkSource() {
@@ -88,25 +61,16 @@ function installProduct() {
 }
 
 function makeInstall() {
-    cd $File
-    if [ -f "Makefile" ]; then
-        sudo make clean
-        sudo rm "Makefile"
+     cd $File
+     if [ -f "Makefile" ]; then
+         sudo make clean
+         sudo rm "Makefile"
      fi
-     ./bootstrap.sh
-     echo $Install
-     echo $withGd
-     exit
-     ./configure --prefix="$Install" --with-xpm $withGd
-     if [ ! -f "Makefile" ]; then
-         echo "not fount MakeFile"
-         exit
-     fi
+     ./configure --prefix="$Install" --enable-shared
      sudo make clean && make && make install
      cd $localPath
-}
+ }
 
-getDepend
 checkSource
 installProduct
 makeInstall

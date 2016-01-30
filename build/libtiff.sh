@@ -6,7 +6,7 @@ Install=""
 # 文件路径
 File=""
 
-config="./config/freetype_config"
+config="./config/libtiff_config"
 
 if [ -n "$1" ]; then
     if [ -f "$s1" ]; then
@@ -14,7 +14,27 @@ if [ -n "$1" ]; then
     fi
 fi
 
+function checkFile() {
+    if [ ! -f "$1" ]; then
+        echo "'$1' file not fount"
+        exit
+    fi
+}
+
 function checkDir() {
+    if [ ! -d "$1" ]; then
+        echo "'$1' dir not fount"
+    fi
+}
+
+function checkStrIsNull() {
+    if [ -z "$1" ]; then
+        echo "this config is null"
+        exit
+    fi
+}
+
+function checkSource() {
     local sources=`cat "$config" | grep sources`
     local sources=`echo "$sources" | cut -d ':' -f 2`
     if [ -z "$sources" ]; then
@@ -29,7 +49,7 @@ function checkDir() {
     File=$(cd $dependSource; pwd)
 }
 
-function delOpensslDir() {
+function installProduct() {
     local install=`cat "$config" | grep install`
     local install=`echo "$install" | cut -d ':' -f 2`
     local dependInstall="$localPath/..$install"
@@ -44,12 +64,14 @@ function makeInstall() {
      cd $File
      if [ -f "Makefile" ]; then
          sudo make clean
+         sudo rm "Makefile"
      fi
-     ./configure --prefix="$Install"
+     ./configure --prefix="$Install" \
+         --enable-shared
      sudo make clean && make && make install
      cd $localPath
  }
 
-checkDir
-delOpensslDir
+checkSource
+installProduct
 makeInstall
