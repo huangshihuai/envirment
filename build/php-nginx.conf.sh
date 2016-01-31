@@ -31,6 +31,8 @@ openssl=$(cd "$dir/../depend/openssl"; pwd)
 curl=$(cd "$dir/../depend/curl"; pwd)
 t1lib=$(cd "$dir/../depend/t1lib"; pwd)
 zlib=$(cd "$dir/../depend/zlib"; pwd)
+#freetype=$(cd "$dir/../depend/")
+
 # 编译所有的扩展
 ./configure --prefix=$phpPath \
     --with-config-file-path=$phpPath/etc \
