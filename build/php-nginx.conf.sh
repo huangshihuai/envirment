@@ -31,6 +31,10 @@ openssl=$(cd "$dir/../depend/openssl"; pwd)
 curl=$(cd "$dir/../depend/curl"; pwd)
 t1lib=$(cd "$dir/../depend/t1lib"; pwd)
 zlib=$(cd "$dir/../depend/zlib"; pwd)
+xml=$(cd "$dir/../depend/libxml"; pwd)
+jpeg=$(cd "$dir/../depend/libjpeg"; pwd)
+png=$(cd "$dir/../depend/libpng"; pwd)
+xpm=$(cd "$dir/../depend/xpm"; pwd)
 #freetype=$(cd "$dir/../depend/")
 
 # 编译所有的扩展
@@ -61,12 +65,12 @@ zlib=$(cd "$dir/../depend/zlib"; pwd)
     --with-mcrypt \
     --with-t1lib=$t1lib \
     --with-freetype-dir \
-    --with-jpeg-dir \
-    --with-png-dir \
-    --with-libxml-dir \
+    --with-jpeg-dir="$jpeg" \
+    --with-png-dir="$png" \
+    --with-libxml-dir="$xml" \
     --with-mysql \
     --with-pdo-mysql \
-    --with-xpm-dir \
+    --with-xpm-dir="$xpm" \
     --with-gettext \
     --with-freetype-dir \
     --with-iconv-dir \
