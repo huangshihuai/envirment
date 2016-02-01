@@ -1,0 +1,3 @@
+sources:/../source/depend/mpc
+install:/../depend/mpc
+libwith:--with-mpc=.gdout

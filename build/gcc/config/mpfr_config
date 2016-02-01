@@ -1,0 +1,3 @@
+sources:/../source/depend/mpfr
+install:/../depend/mpfr
+libwith:--with-mpfr=.gdout
