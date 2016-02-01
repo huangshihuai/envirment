@@ -43,10 +43,10 @@ function checkConfig() {
     checkStrIsNull "$install"
     local install="$localPath/..$install"
     checkDir "$install"
-    local gdout=$(cd "$install"; pwd)
+    local out=$(cd "$install"; pwd)
     libwith=`cat "$conf" | grep libwith`
     checkStrIsNull "$libwith"
-    libwith=${libwith//.gdout/$gdout}
+    libwith=${libwith//.out/$out}
     libwith=`echo "$libwith" | cut -d ':' -f 2`
     checkStrIsNull $libwith
 }

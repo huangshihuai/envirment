@@ -43,12 +43,22 @@ function checkConfig() {
     checkStrIsNull "$install"
     local install="$localPath/..$install"
     checkDir "$install"
-    local gdout=$(cd "$install"; pwd)
+    local out=$(cd "$install"; pwd)
     libwith=`cat "$conf" | grep libwith`
     checkStrIsNull "$libwith"
-    libwith=${libwith//.gdout/$gdout}
+    libwith=${libwith//.out/$out}
     libwith=`echo "$libwith" | cut -d ':' -f 2`
     checkStrIsNull $libwith
+    exportLibraryPath "$out"
+}
+
+function exportLibraryPath() {
+    checkStrIsNull "$1"
+    local libPath="$1/lib"
+    checkDir "$libPath"
+    libPath=$(cd "$libPath"; pwd)
+    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"$libPath"
+    export LD_LIBRARY_PATH
 }
 
 function getDepend() {

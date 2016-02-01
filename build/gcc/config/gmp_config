@@ -1,3 +1,3 @@
 sources:/../source/depend/gmp
 install:/../depend/gmp
-libwith:--with-gmp=.gdout
+libwith:--with-gmp=.out
