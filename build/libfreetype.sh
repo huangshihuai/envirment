@@ -6,7 +6,7 @@ Install=""
 # 文件路径
 File=""
 
-config="./config/libfreetype_config"
+config=./config/libfreetype_config
 
 if [ -n "$1" ]; then
     if [ -f "$s1" ]; then
@@ -18,7 +18,7 @@ function checkDir() {
     local sources=`cat "$config" | grep sources`
     local sources=`echo "$sources" | cut -d ':' -f 2`
     if [ -z "$sources" ]; then
-        echo 'this config is null'
+        echo "this config is null"
         exit
     fi
     local dependSource="$localPath/..$sources"
