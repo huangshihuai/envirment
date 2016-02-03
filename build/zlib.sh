@@ -46,6 +46,7 @@ function makeInstall() {
         sudo make clean
         sudo rm "Makefile"
      fi
+    # ./configure
     ./configure --prefix="$Install"
     if [ ! -f "Makefile" ]; then
         echo "not fount MakeFile"

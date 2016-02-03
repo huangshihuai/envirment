@@ -66,11 +66,41 @@ function makeInstall() {
          sudo make clean
          sudo rm "Makefile"
      fi
-     ./configure --prefix="$Install"
+     ./configure --prefix="$Install" $withConf
      sudo make clean && make && make install
      cd $localPath
  }
 
+function checkConfig() {
+    checkFile "$1"
+    conf="$1"
+    local install=`cat "$conf" | grep install`
+    checkStrIsNull $install
+    local install=`echo "$install" | cut -d ':' -f 2`
+    checkStrIsNull "$install"
+    local install="$localPath/..$install"
+    checkDir "$install"
+    local out=$(cd "$install"; pwd)
+    libwith=`cat "$conf" | grep libwith`
+    checkStrIsNull "$libwith"
+    libwith=${libwith//.out/$out}
+    libwith=`echo "$libwith" | cut -d ':' -f 2`
+    checkStrIsNull $libwith
+}
+
+function getDepend() {
+    withConf=""
+    local configs="zlib_config"
+    local config
+    for config in $configs
+    do
+        checkConfig "./config/$config"
+        withConf="${withConf}"" ""${libwith}"
+    done
+}
+
+
+getDepend
 checkSource
 installProduct
 makeInstall
