@@ -1,0 +1,3 @@
+sources:/source/depend/png
+install:/depend/png
+libgd:--with-png=.gdout

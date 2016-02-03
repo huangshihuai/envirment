@@ -5,15 +5,18 @@ import os
 
 exportPath=""
 
-def readPath(config):
+def readPath(config, configKey):
     if os.path.exists(config) == False:
         print "配置文件路径不存在: " + config
+        exit()
+    if configKey.strip() == '':
+        print "key is null"
         exit()
     fp=open(config, 'r')
     listOfAll=fp.read().splitlines()
     for line in listOfAll:
         # 读取安装路径
-        if "exportPath" in line:
+        if configKey in line:
             tmp=line.split(':')
             if len(tmp) != 2:
                 print "配置文件错误"
@@ -52,7 +55,7 @@ def deleteFile(msg):
 
 config=""
 
-readPath("./config/path_config")
+readPath("./config/path_config", 'buildPath')
 exportPath=os.path.abspath(exportPath)
 if os.path.exists(exportPath) == False:
     print ("文件路径没找到:" + exportPath)

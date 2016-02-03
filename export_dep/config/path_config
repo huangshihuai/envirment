@@ -1,2 +1,3 @@
-exportPath:../../depend
-sourcePath:../
+exportPath:../source/depend
+sourcePath:../source/InstallPackage
+buildPath:../depend

@@ -31,14 +31,20 @@ openssl=$(cd "$dir/../depend/openssl"; pwd)
 curl=$(cd "$dir/../depend/curl"; pwd)
 t1lib=$(cd "$dir/../depend/t1lib"; pwd)
 zlib=$(cd "$dir/../depend/zlib"; pwd)
-xml=$(cd "$dir/../depend/libxml"; pwd)
-jpeg=$(cd "$dir/../depend/libjpeg"; pwd)
-png=$(cd "$dir/../depend/libpng"; pwd)
-xpm=$(cd "$dir/../depend/xpm"; pwd)
+xml=$(cd "$dir/../depend/xml"; pwd)
+jpeg=$(cd "$dir/../depend/jpeg"; pwd)
+png=$(cd "$dir/../depend/png"; pwd)
+#xpm=$(cd "$dir/../depend/xpm"; pwd)
 #freetype=$(cd "$dir/../depend/")
 
+if [ -d "php-build" ]; then
+    sudo rm -rf "php-build"
+fi
+
+mkdir "php-build" && cd "php-build"
+
 # 编译所有的扩展
-./configure --prefix=$phpPath \
+../configure --prefix=$phpPath \
     --with-config-file-path=$phpPath/etc \
     --with-config-file-scan-dir=$phpPath/ext \
     --enable-bcmath \
@@ -70,7 +76,7 @@ xpm=$(cd "$dir/../depend/xpm"; pwd)
     --with-libxml-dir="$xml" \
     --with-mysql \
     --with-pdo-mysql \
-    --with-xpm-dir="$xpm" \
+    --with-xpm-dir \
     --with-gettext \
     --with-freetype-dir \
     --with-iconv-dir \

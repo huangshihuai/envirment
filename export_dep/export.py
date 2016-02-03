@@ -57,11 +57,14 @@ def exportBz(sourcePath, exportPath):
     os.system("tar -xjf " + sourcePath + " -C " + exportPath)
     return
 
+def exportXz(sourcePath, exportPath):
+    os.system("tar -xvf " + sourcePath + " -C " + exportPath)
+
 def createLn(sourcePath, lnPath):
     os.system("ln -s " + sourcePath + " " + lnPath)
     return
 
-defType={'.zip': exportZip, '.tar.gz': exportGz, '.tar.bz2': exportBz}
+defType={'.zip': exportZip, '.tar.gz': exportGz, '.tar.bz2': exportBz, '.tar.xz': exportXz}
 
 #读取配置文件
 def readFile(config):

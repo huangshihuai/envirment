@@ -1,13 +1,14 @@
+# file link, Unzip Name, source name
 bison=bison-2.7=bison-2.7.tar.gz
 curl=curl-7.43.0=curl-7.43.0.tar.gz
 freetype=freetype-2.5.3=freetype-2.5.3.tar.gz
 gmp=gmp-4.3.2=gmp-4.3.2.tar.bz2
 nginx-upstream-fair=gnosek-nginx-upstream-fair-a18b409=gnosek-nginx-upstream-fair-a18b409.tar.gz
 harfbuzz=harfbuzz-master=harfbuzz-master.zip
-jpegsrc=jpeg-9b=jpegsrc.v9b.tar.gz
-libgd=libgd-gd-2.1.1=libgd-gd-2.1.1.zip
-libpng=libpng-1.5.21=libpng-1.5.21.tar.gz
-libxml=libxml2-2.7.2=libxml2-2.7.2.tar.gz
+jpeg=jpeg-9b=jpegsrc.v9b.tar.gz
+gd=libgd-gd-2.1.1=libgd-gd-2.1.1.zip
+png=libpng-1.5.22=libpng-1.5.22.tar.xz
+xml=libxml2-2.7.2=libxml2-2.7.2.tar.gz
 nginx-upload-progress-module=masterzen-nginx-upload-progress-module-a788dea=masterzen-nginx-upload-progress-module-v0.9.0-0-ga788dea.tar.gz
 mpc=mpc-0.8.1=mpc-0.8.1.tar.gz
 mpfr=mpfr-2.4.2=mpfr-2.4.2.tar.bz2
@@ -16,3 +17,7 @@ pcre=pcre-8.36=pcre-8.36.tar.gz
 t1lib=t1lib-5.1.2=t1lib-5.1.2.tar.gz
 tiff=tiff-3.9.4=tiff-3.9.4.zip
 zlib=zlib-1.2.8=zlib-1.2.8.zip
+autoconf=autoconf-2.59=autoconf-2.59.tar.gz
+automake=automake-1.9.6=automake-1.9.6.tar.gz
+libtool=libtool-1.5.22=libtool-1.5.22.tar.gz
+re2c=re2c-0.13.6=re2c-0.13.6.tar.gz
