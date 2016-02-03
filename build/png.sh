@@ -79,12 +79,12 @@ function makeInstall() {
          sudo make clean
          sudo rm "Makefile"
      fi
-     #export LDFLAGS="-L /root/envirment/depend/zlib/lib"
-     #export CPPFLAGS="-I /root/envirment/depend/zlib/include"
+     export LDFLAGS="-L /root/envirment/depend/zlib/lib"
+     export CPPFLAGS="-I /root/envirment/depend/zlib/include"
      sudo ./configure --prefix="$Install" \
          --enable-shared \
          --with-zlib-prefix="$zlibInstall"
-     sudo make clean && make && make install
+     sudo make clean && sudo make && make install
      cd $localPath
  }
 
