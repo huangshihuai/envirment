@@ -94,12 +94,12 @@ function makeInstall() {
         sudo make clean >/dev/null 2>&1
         sudo rm "Makefile"
      fi
+     echo "install mpc"
      ./configure --prefix="$Install" $withConf >/dev/null 2>&1
      if [ ! -f "Makefile" ]; then
          echo "not fount MakeFile"
          exit
      fi
-     echo "install mpc"
      sudo make clean >/dev/null 2>&1
      make >/dev/null 2>&1
      make install >/dev/null 2>&1

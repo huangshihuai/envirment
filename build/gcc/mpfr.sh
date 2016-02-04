@@ -102,7 +102,7 @@ function makeInstall() {
      fi
      sudo make clean >/dev/null 2>&1
      make >/dev/null 2>&1
-     make install >/dev/null 2>&1l
+     make install >/dev/null 2>&1
      echo "install mpfr ok"
 }
 
