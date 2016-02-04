@@ -68,12 +68,15 @@ function installProduct() {
 function makeInstall() {
     cd "$File"
     if [ -f "Makefile" ]; then
-        sudo make clean
+        sudo make clean >/dev/null 2>&1
         sudo rm "Makefile"
     fi
-    ../configure --prefix="$Install"
-    sudo make clean && make && make install
-    cd $localPath
+    echo "install gmp"
+    ../configure --prefix="$Install" >/dev/null 2>&1
+    sudo make clean >/dev/null 2>&1
+    make >/dev/null 2>&1
+    make install >/dev/null 2>&1
+    echo "install gmp ok"
  }
 
 checkSource

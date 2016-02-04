@@ -91,16 +91,19 @@ function installProduct() {
 function makeInstall() {
     cd $File
     if [ -f "Makefile" ]; then
-        sudo make clean
+        sudo make clean >/dev/null 2>&1
         sudo rm "Makefile"
      fi
-     ./configure --prefix="$Install" $withConf
+     echo "install mpfr"
+     ./configure --prefix="$Install" $withConf >/dev/null 2>&1
      if [ ! -f "Makefile" ]; then
          echo "not fount MakeFile"
          exit
      fi
-     sudo make clean && make && make install
-     cd $localPath
+     sudo make clean >/dev/null 2>&1
+     make >/dev/null 2>&1
+     make install >/dev/null 2>&1l
+     echo "install mpfr ok"
 }
 
 getDepend

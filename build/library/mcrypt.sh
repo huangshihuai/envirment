@@ -1,12 +1,12 @@
 #!/bin/bash
 
-localPath=`pwd`
+localPath=`pwd`"/../.."
 # 安装目录
 Install=""
 # 文件路径
 File=""
 
-config=./config/mcrypt_config
+config=../config/mcrypt_config
 
 if [ -n "$1" ]; then
     if [ -f "$s1" ]; then
@@ -41,7 +41,7 @@ function checkSource() {
         echo 'this config is null'
         exit
     fi
-    local dependSource="$localPath/..$sources"
+    local dependSource="$localPath""$sources"
     if [ ! -d $dependSource ]; then
         echo "dir not fount: $dependSource";
         exit
@@ -52,7 +52,7 @@ function checkSource() {
 function installProduct() {
     local install=`cat "$config" | grep install`
     local install=`echo "$install" | cut -d ':' -f 2`
-    local dependInstall="$localPath/..$install"
+    local dependInstall="$localPath""$install"
     if [ -d "$dependInstall" ]; then
         sudo rm -rf "$dependInstall"
     fi
@@ -63,12 +63,15 @@ function installProduct() {
 function makeInstall() {
      cd $File
      if [ -f "Makefile" ]; then
-         sudo make clean
+         sudo make clean >/dev/null 2>&1
          sudo rm "Makefile"
      fi
-     ./configure --prefix="$Install"
-     sudo make clean && make && make install
-     cd $localPath
+     echo "install mcrypt"
+     ./configure --prefix="$Install" >/dev/null 2>&1
+     sudo make clean >/dev/null 2>&1
+     make >/dev/null 2>&1
+     make install >/dev/null 2>&1
+     echo "install mcrypt ok"
  }
 
 checkSource

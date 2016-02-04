@@ -1,12 +1,12 @@
 #!/bin/bash
 
-localPath=`pwd`
+localPath=`pwd`"/../.."
 # 安装目录
 Install=""
 # 文件路径
 File=""
 
-config=./config/sys_php_config
+config=../config/sys_php_config
 
 if [ -n "$1" ]; then
     if [ -f "$s1" ]; then
@@ -41,9 +41,9 @@ function checkSource() {
         echo 'this config is null'
         exit
     fi
-    local dependSource="$localPath/..$sources"
+    local dependSource="$localPath""$sources"
     if [ ! -d $dependSource ]; then
-        echo "dir not fount: $localPath";
+        echo "dir not fount: $dependSource";
         exit
     fi
     File=$(cd $dependSource; pwd)
@@ -52,7 +52,7 @@ function checkSource() {
 function installProduct() {
     local install=`cat "$config" | grep install`
     local install=`echo "$install" | cut -d ':' -f 2`
-    local dependInstall="$localPath/..$install"
+    local dependInstall="$localPath""$install"
     if [ ! -d $dependInstall ]; then
         echo "dir not fount: $dependInstall";
         exit

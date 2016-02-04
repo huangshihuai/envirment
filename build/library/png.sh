@@ -1,12 +1,12 @@
 #!/bin/bash
 
-localPath=`pwd`
+localPath=`pwd`"/../.."
 # 安装目录
 Install=""
 # 文件路径
 File=""
 
-config="./config/png_config"
+config="../config/png_config"
 
 if [ -n "$1" ]; then
     if [ -f "$s1" ]; then
@@ -36,13 +36,13 @@ function checkStrIsNull() {
 }
 
 function checkZlib() {
-    local zlibConfig="./config/zlib_config"
+    local zlibConfig="../config/zlib_config"
     checkFile $zlibConfig
     local zlib=`cat "$zlibConfig" | grep install`
     checkStrIsNull $zlib
     local zlib=`echo "$zlib" | cut -d ':' -f 2`
     checkStrIsNull $zlib
-    local zlib="$localPath/..$zlib"
+    local zlib="$localPath""$zlib"
     checkDir "$zlib"
     zlibInstall=$(cd "$zlib"; pwd)
 }
@@ -54,9 +54,9 @@ function checkSource() {
         echo 'this config is null'
         exit
     fi
-    local dependSource="$localPath/..$sources"
-    if [ ! -d $localPath ]; then
-        echo "dir not fount: $localPath";
+    local dependSource="$localPath""$sources"
+    if [ ! -d $dependSource ]; then
+        echo "dir not fount: $dependSource";
         exit
     fi
     File=$(cd $dependSource; pwd)
@@ -65,7 +65,7 @@ function checkSource() {
 function installProduct() {
     local install=`cat "$config" | grep install`
     local install=`echo "$install" | cut -d ':' -f 2`
-    local dependInstall="$localPath/..$install"
+    local dependInstall="$localPath""$install"
     if [ -d "$dependInstall" ]; then
         sudo rm -rf "$dependInstall"
     fi
@@ -76,16 +76,19 @@ function installProduct() {
 function makeInstall() {
      cd $File
      if [ -f "Makefile" ]; then
-         sudo make clean
+         sudo make clean >/dev/null 2>&1
          sudo rm "Makefile"
      fi
+     echo "install png"
      export LDFLAGS="-L$zlibInstall/lib"
      export CFLAGS="-I$zlibInstall/include"
      ./configure --prefix="$Install" \
          --enable-shared \
-         --with-zlib-prefix="$zlibInstall"
-     sudo make clean && make && make install
-     cd $localPath
+         --with-zlib-prefix="$zlibInstall" >/dev/null 2>&1
+     sudo make clean >/dev/null 2>&1
+     make >/dev/null 2>&1
+     make install >/dev/null 2>&1
+     echo "install png ok"
  }
 
 checkZlib

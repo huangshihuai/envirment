@@ -105,7 +105,7 @@ function installProduct() {
 
 function makeInstall() {
     cd $File
-    echo `pwd`
+    $terminal=">/dev/null 2>&1"
     if [ -f "Makefile" ]; then
         sudo make clean
         sudo rm "Makefile"
@@ -114,13 +114,16 @@ function makeInstall() {
          --disable-multilib \
          --enable-checking=release \
          --enable-languages=c,c++ \
-         $withConf
+         $withConf $terminal
      if [ ! -f "Makefile" ]; then
          echo "not fount MakeFile"
          exit
      fi
-     sudo make clean && make -j2 && make install
-     cd $localPath
+     echo "install gcc"
+     sudo make clean $terminal
+     make -j2 $terminal
+     make install $terminal
+     echo "install gcc ok"
 }
 
 getDepend

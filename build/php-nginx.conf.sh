@@ -85,7 +85,6 @@ mkdir "php-build" && cd "php-build"
     --with-fpm-user=www \
     --with-fpm-group=www \
     $debug
-exit
 if [ -f "Makefile" ]; then
     make && make install
 fi
