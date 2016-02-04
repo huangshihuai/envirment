@@ -35,7 +35,9 @@ xml=$(cd "$dir/../depend/xml"; pwd)
 jpeg=$(cd "$dir/../depend/jpeg"; pwd)
 png=$(cd "$dir/../depend/png"; pwd)
 #xpm=$(cd "$dir/../depend/xpm"; pwd)
-#freetype=$(cd "$dir/../depend/")
+freetype=$(cd "$dir/../depend/freetype"; pwd)
+mcrypt=$(cd "$dir/../depend/mcrypt"; pwd)
+libmcrypt="$mcrypt/lib"
 
 if [ -d "php-build" ]; then
     sudo rm -rf "php-build"
@@ -62,15 +64,16 @@ mkdir "php-build" && cd "php-build"
     --enable-calendar \
     --enable-exif \
     --enable-fd-setsize=4096 \
+    --enable-opcache \
     --with-gd \
     --with-openssl="$openssl" \
     --with-zlib="$zlib" \
     --with-pear \
     --with-xmlrpc \
     --with-curl="$curl" \
-    --with-mcrypt \
+    --with-mcrypt="$libmcrypt" \
     --with-t1lib=$t1lib \
-    --with-freetype-dir \
+    --with-freetype-dir=$freetype \
     --with-jpeg-dir="$jpeg" \
     --with-png-dir="$png" \
     --with-libxml-dir="$xml" \
@@ -78,7 +81,6 @@ mkdir "php-build" && cd "php-build"
     --with-pdo-mysql \
     --with-xpm-dir \
     --with-gettext \
-    --with-freetype-dir \
     --with-iconv-dir \
     --with-fpm-user=www \
     --with-fpm-group=www \

@@ -1,0 +1,3 @@
+sources:/source/depend/mcrypt
+install:/depend/mcrypt
+libgd:--with-mcrypt=.gdout

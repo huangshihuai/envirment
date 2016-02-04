@@ -21,3 +21,4 @@ autoconf=autoconf-2.59=autoconf-2.59.tar.gz
 automake=automake-1.9.6=automake-1.9.6.tar.gz
 libtool=libtool-1.5.22=libtool-1.5.22.tar.gz
 re2c=re2c-0.13.6=re2c-0.13.6.tar.gz
+mcrypt=libmcrypt-2.5.8=libmcrypt-2.5.8.tar.gz
