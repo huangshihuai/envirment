@@ -242,3 +242,28 @@
 2015/12/29 17:20:32 [error] 29056#0: *60 open() "/home/hsh/envirment/webserver/nginx/html/gscodesigng2" failed (2: No such file or directory), client: 10.0.2.2, server: localhost, request: "POST /gscodesigng2 HTTP/1.1", host: "ocsp2.globalsign.com"
 2015/12/29 17:30:43 [error] 29056#0: *61 open() "/home/hsh/envirment/webserver/nginx/html/gscodesigng2/MFMwUTBPME0wSzAJBgUrDgMCGgUABBRruLd2WRFk6cRYGFIqkQ4J8hxDogQUCG7YtpyKv+0+18N0XcyAH6gvUHoCEhEhDPsqJwImUcEUZCd/GUD0SQ==" failed (2: No such file or directory), client: 10.0.2.2, server: localhost, request: "GET /gscodesigng2/MFMwUTBPME0wSzAJBgUrDgMCGgUABBRruLd2WRFk6cRYGFIqkQ4J8hxDogQUCG7YtpyKv%2B0%2B18N0XcyAH6gvUHoCEhEhDPsqJwImUcEUZCd%2FGUD0SQ%3D%3D HTTP/1.1", host: "ocsp2.globalsign.com"
 2015/12/29 17:30:47 [error] 29056#0: *61 open() "/home/hsh/envirment/webserver/nginx/html/gscodesigng2" failed (2: No such file or directory), client: 10.0.2.2, server: localhost, request: "POST /gscodesigng2 HTTP/1.1", host: "ocsp2.globalsign.com"
+2016/02/04 17:27:00 [emerg] 24066#0: getpwnam("hsh") failed
+2016/02/04 17:39:50 [error] 20862#0: *1 open() "/root/envirment/webserver/nginx/html/favicon.ico" failed (2: No such file or directory), client: 10.0.2.2, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "127.0.0.1:8080", referrer: "http://127.0.0.1:8080/"
+2016/02/04 17:42:41 [emerg] 21201#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2016/02/04 17:42:41 [emerg] 21201#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2016/02/04 17:42:41 [emerg] 21201#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2016/02/04 17:42:41 [emerg] 21201#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2016/02/04 17:43:48 [error] 21371#0: *1 directory index of "/root/envirment/webroot/" is forbidden, client: 10.0.2.2, server: localhost, request: "GET / HTTP/1.1", host: "127.0.0.1:8080"
+2016/02/04 17:43:48 [error] 21371#0: *1 directory index of "/root/envirment/webroot/" is forbidden, client: 10.0.2.2, server: localhost, request: "GET / HTTP/1.1", host: "127.0.0.1:8080"
+2016/02/04 17:43:49 [error] 21371#0: *1 directory index of "/root/envirment/webroot/" is forbidden, client: 10.0.2.2, server: localhost, request: "GET / HTTP/1.1", host: "127.0.0.1:8080"
+2016/02/04 17:43:49 [error] 21371#0: *1 directory index of "/root/envirment/webroot/" is forbidden, client: 10.0.2.2, server: localhost, request: "GET / HTTP/1.1", host: "127.0.0.1:8080"
+2016/02/04 17:43:49 [error] 21371#0: *1 directory index of "/root/envirment/webroot/" is forbidden, client: 10.0.2.2, server: localhost, request: "GET / HTTP/1.1", host: "127.0.0.1:8080"
+2016/02/04 17:43:49 [error] 21371#0: *1 directory index of "/root/envirment/webroot/" is forbidden, client: 10.0.2.2, server: localhost, request: "GET / HTTP/1.1", host: "127.0.0.1:8080"
+2016/02/04 17:45:55 [emerg] 21724#0: invalid number of arguments in "fastcgi_index" directive in /root/envirment/webserver/nginx/conf/nginx.conf:46
+2016/02/04 17:46:05 [emerg] 21755#0: invalid number of arguments in "fastcgi_index" directive in /root/envirment/webserver/nginx/conf/nginx.conf:46
+2016/02/04 17:46:22 [emerg] 21789#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2016/02/04 17:46:22 [emerg] 21789#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2016/02/04 17:46:22 [emerg] 21789#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2016/02/04 17:46:22 [emerg] 21789#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2016/02/04 17:46:25 [notice] 21800#0: signal process started
+2016/02/04 17:48:40 [emerg] 22168#0: invalid number of arguments in "fastcgi_param" directive in /root/envirment/webserver/nginx/conf/nginx.conf:49
+2016/02/04 17:48:48 [notice] 22189#0: signal process started
+2016/02/04 17:56:33 [emerg] 9965#0: unknown "php_upstream" variable
+2016/02/04 17:57:56 [notice] 31713#0: signal process started
+2016/02/04 17:58:26 [crit] 31981#0: *1 connect() to unix:/root/envirment/var/php-cgi.sock failed (2: No such file or directory) while connecting to upstream, client: 10.0.2.2, server: localhost, request: "GET /index.php HTTP/1.1", upstream: "fastcgi://unix:/root/envirment/var/php-cgi.sock:", host: "127.0.0.1:8080"
+2016/02/04 17:58:47 [crit] 31981#0: *1 connect() to unix:/root/envirment/var/php-cgi.sock failed (2: No such file or directory) while connecting to upstream, client: 10.0.2.2, server: localhost, request: "GET /index.php HTTP/1.1", upstream: "fastcgi://unix:/root/envirment/var/php-cgi.sock:", host: "127.0.0.1:8080"
