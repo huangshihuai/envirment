@@ -1,6 +1,6 @@
 import os
 #coding=utf-8
-# 存储shell的名字
+# 存储shell的名字,按照依赖顺序变异
 shName=[
         'gmp.sh',
         'mpfr.sh',
