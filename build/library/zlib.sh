@@ -40,6 +40,18 @@ function delOpensslDir() {
     Install=$(cd "$dependInstall"; pwd)
 }
 
+# 使用系统指定的gcc
+function exportPath() {
+    if [ ! -d '$localPath/../lib/gcc-4.9.0' ]; then
+        if [ ! -d '$localPath/../depend/mpfr' ]; then
+            cc=$(cd "$localPath/lib/gcc-4.9.0"; pwd)
+            lib=$(cd "$localPath/depend/mpfr"; pwd)
+            export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$lib"
+            export CC="$cc"
+        fi
+    fi
+}
+
 function makeInstall() {
     cd $File
     if [ -f "Makefile" ]; then
@@ -47,7 +59,7 @@ function makeInstall() {
         sudo rm "Makefile"
      fi
      echo "install zlib"
-    ./configure --prefix="$Install" >/dev/null 2>&1
+    ./configure --prefix="$Install" #>/dev/null 2>&1
     if [ ! -f "Makefile" ]; then
         echo "not fount MakeFile"
         exit
@@ -58,6 +70,7 @@ function makeInstall() {
     echo "install zlib ok"
 }
 
+exportPath
 checkDir
 delOpensslDir
 makeInstall

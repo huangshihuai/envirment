@@ -9,7 +9,7 @@ class projectBuild:
     def __init__(self,configPath,):
         print('I\m projectBuild')
 
-pb=projectBuild()
+pb=projectBuild('wwww')
 
 configPath="./config/gcc.ini"
 #检查配置文件是否存在，存在返回True，不存在返回false
@@ -20,8 +20,8 @@ def configExists(configPath):
         print 'this config path not fount: ' + configPath
         exit()
 
-
 configPath=configExists(configPath)
+print configPath
 '''
 print os.getcwd()
 print os.path.abspath(os.getcwd() + '/../source/gcc')

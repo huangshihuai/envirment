@@ -6,7 +6,7 @@ Install=""
 # 文件路径
 File=""
 
-config="./config/gcc_config"
+config="../config/gcc_config"
 
 if [ -n "$1" ]; then
     if [ -f "$s1" ]; then
@@ -67,7 +67,7 @@ function getDepend() {
     local config=""
     for config in $configs
     do
-        checkConfig "./config/$config"
+        checkConfig "../config/$config"
         withConf="${withConf}"" ""${libwith}"
     done
 }

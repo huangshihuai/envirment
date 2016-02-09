@@ -6,7 +6,7 @@ Install=""
 # 文件路径
 File=""
 
-config="./config/gmp_config"
+config="../config/gmp_config"
 
 if [ -n "$1" ]; then
     if [ -f "$s1" ]; then

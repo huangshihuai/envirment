@@ -6,7 +6,7 @@ Install=""
 # 文件路径
 File=""
 
-config="./config/mpfr_config"
+config="../config/mpfr_config"
 
 if [ -n "$1" ]; then
     if [ -f "$s1" ]; then
@@ -57,7 +57,7 @@ function getDepend() {
     local config
     for config in $configs
     do
-        checkConfig "./config/gmp_config"
+        checkConfig "../config/gmp_config"
         withConf="${withConf}"" ""${libwith}"
     done
 }

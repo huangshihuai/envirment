@@ -1,37 +1,26 @@
-#!/bin/bash
-localPath=`pwd`"/../.."
-# 安装目录
-Install=""
-# 文件路径
-File=""
+import os
+import string
+#coding=utf-8
 
-config=../config/sys_php_config
+if os.path.exists('../config/sys_php.ini') == False:
+    print 'sys_php.ini not fount. check dir:buildRoot/build/config'
+    exit()
 
-if [ -n "$1" ]; then
-    if [ -f "$s1" ]; then
-        config="$1"
-    fi
-fi
+rootPath=os.path.abspath('../../')
+config=os.path.abspath('../config/sys_php.ini')
 
-function checkFile() {
-    if [ ! -f "$1" ]; then
-        echo "'$1' file not fount"
-        exit
-    fi
-}
+readConfig=['sources', 'pagelst']
+cf=ConfigParser.ConfigParser()
+cf.read(config)
 
-function checkDir() {
-    if [ ! -d "$1" ]; then
-        echo "'$1' dir not fount"
-    fi
-}
+opts=cf.options('info')
 
-function checkStrIsNull() {
-    if [ -z "$1" ]; then
-        echo "this $1 is null"
-        exit
-    fi
-}
+for item in readConfig:
+    if item in opts
+        continue
+    print '请检查配置文件'
+    exit()
+
 
 function checkSource() {
     local sources=`cat "$config" | grep sources`
