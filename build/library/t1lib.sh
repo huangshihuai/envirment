@@ -50,7 +50,7 @@ function makeInstall() {
      make install >/dev/null 2>&1
      echo "install t1lib ok"
 }
-
+source './export_gcc.sh'
 checkDir
 delOpensslDir
 makeInstall

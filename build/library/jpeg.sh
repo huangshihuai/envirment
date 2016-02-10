@@ -75,6 +75,7 @@ function makeInstall() {
      echo "install jpeg Ok"
  }
 
+source './export_gcc.sh'
 checkSource
 installProduct
 makeInstall

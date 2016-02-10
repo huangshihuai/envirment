@@ -91,6 +91,7 @@ function makeInstall() {
      echo "install png ok"
  }
 
+source './export_gcc.sh'
 checkZlib
 checkSource
 installProduct

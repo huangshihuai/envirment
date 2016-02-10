@@ -62,7 +62,7 @@ function makeInstall() {
     make install >/dev/null 2>&1
     echo "install curl ok"
 }
-
+source './export_gcc.sh'
 checkDir
 delCurlDir
 makeInstall

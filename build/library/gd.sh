@@ -106,6 +106,7 @@ function makeInstall() {
      cd $localPath
 }
 
+source './export_gcc.sh'
 getDepend
 checkSource
 installProduct

@@ -75,6 +75,7 @@ function makeInstall() {
      echo "install tiff ok"
  }
 
+source './export_gcc.sh'
 checkSource
 installProduct
 makeInstall

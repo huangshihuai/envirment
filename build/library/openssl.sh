@@ -53,6 +53,7 @@ function makeInstall() {
     echo "install openssl ok"
 }
 
+source './export_gcc.sh'
 checkDir
 delOpensslDir
 makeInstall

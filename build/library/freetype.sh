@@ -52,7 +52,7 @@ function makeInstall() {
      make install >/dev/null 2>&1
      echo "install freetype Ok"
  }
-
+source './export_gcc.sh'
 checkDir
 delOpensslDir
 makeInstall

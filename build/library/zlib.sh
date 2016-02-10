@@ -44,10 +44,10 @@ function delOpensslDir() {
 function exportPath() {
     if [ ! -d '$localPath/../lib/gcc-4.9.0' ]; then
         if [ ! -d '$localPath/../depend/mpfr' ]; then
-            cc=$(cd "$localPath/lib/gcc-4.9.0"; pwd)
-            lib=$(cd "$localPath/depend/mpfr"; pwd)
+            cc=$(cd "$localPath/lib/gcc-4.9.0/bin"; pwd)
+            lib=$(cd "$localPath/depend/mpc/lib"; pwd)
             export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$lib"
-            export CC="$cc"
+            export CC="$cc/gcc"
         fi
     fi
 }

@@ -74,6 +74,7 @@ function makeInstall() {
      echo "install mcrypt ok"
  }
 
+source './export_gcc.sh'
 checkSource
 installProduct
 makeInstall

@@ -14,6 +14,7 @@ function setDebug() {
         fi
     done
 }
+source './library/export_gcc.sh'
 #setDebug
 debug="--enable-debug"
 dir=`pwd`
@@ -37,14 +38,13 @@ png=$(cd "$dir/../depend/png"; pwd)
 #xpm=$(cd "$dir/../depend/xpm"; pwd)
 freetype=$(cd "$dir/../depend/freetype"; pwd)
 mcrypt=$(cd "$dir/../depend/mcrypt"; pwd)
-libmcrypt="$mcrypt/lib"
+libmcrypt="$mcrypt"
 
 if [ -d "php-build" ]; then
     sudo rm -rf "php-build"
 fi
 
 mkdir "php-build" && cd "php-build"
-
 # 编译所有的扩展
 ../configure --prefix=$phpPath \
     --with-config-file-path=$phpPath/etc \

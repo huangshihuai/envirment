@@ -102,7 +102,7 @@ function getDepend() {
     done
 }
 
-
+source './export_gcc.sh'
 getDepend
 checkSource
 installProduct
