@@ -109,10 +109,20 @@ function makeInstall() {
         sudo make clean
         sudo rm "Makefile"
     fi
+    # 获取系统
+    sysName=`head -n 1 /etc/issue | cut -d ' ' -f 1`
+    sysName="x86_64-$sysName-linux"
     ../configure --prefix="$Install" \
         --disable-multilib \
+        --enable-bootstrap \
+        --enable-shared \
+        --enable-threads=posix \
         --enable-checking=release \
-        --enable-languages=c,c++ \
+        --with-system-zlib \
+        --enable-__cxa_atexit \
+        --enable-checking=release \
+        --enable-languages=c,c++,objc,obj-c++,java \
+        --build="$sysName" \
         $withConf >/dev/null 2>&1
     if [ ! -f "Makefile" ]; then
         echo "not fount MakeFile"
@@ -129,4 +139,3 @@ getDepend
 checkSource
 installProduct
 makeInstall
-
