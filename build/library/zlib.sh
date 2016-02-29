@@ -42,9 +42,9 @@ function delOpensslDir() {
 
 # 使用系统指定的gcc
 function exportPath() {
-    if [ ! -d '$localPath/../lib/gcc-4.9.0' ]; then
+    if [ ! -d '$localPath/../depend/gcc-4.9.0' ]; then
         if [ ! -d '$localPath/../depend/mpfr' ]; then
-            cc=$(cd "$localPath/lib/gcc-4.9.0/bin"; pwd)
+            cc=$(cd "$localPath/depend/gcc-4.9.0/bin"; pwd)
             lib=$(cd "$localPath/depend/mpc/lib"; pwd)
             export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$lib"
             export CC="$cc/gcc"

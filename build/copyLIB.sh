@@ -28,6 +28,11 @@ function copyLib() {
             cp -n "$isLink" "$dependLib"
         done
     done
+
+    for i in $PHP_BIN; do
+        /root/envirment/bin/patchelf --set-rpath /root/envirment/lib/gcc-4.9.0 --force-rpath "$i"
+        /root/envirment/bin/patchelf --set-interpreter /root/envirment/lib/gcc-4.9.0/ld-linux-x86-64.so.2 "$i"
+    done
 }
 createDependDir
 copyLib
