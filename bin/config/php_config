@@ -1,3 +1,4 @@
-/root/envirment/php/sbin/php-fpm
-/root/envirment/php/bin/php-cgi
-/root/envirment/php/bin/php
+ROOT=/root/envirment2
+/root/envirment2/php/sbin/php-fpm
+/root/envirment2/php/bin/php-cgi
+/root/envirment2/php/bin/php
