@@ -70,7 +70,8 @@ function makeInstall() {
     echo "install zlib ok"
 }
 
-exportPath
+#exportPath
+source './export_gcc.sh'
 checkDir
 delOpensslDir
 makeInstall

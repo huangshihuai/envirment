@@ -107,6 +107,7 @@ function makeInstall() {
     fi
  }
 
+source './export_gcc.sh'
 checkSource
 getPage
 echo "install OK"

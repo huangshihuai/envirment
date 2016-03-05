@@ -15,13 +15,12 @@ function setDebug() {
     done
 }
 source './library/export_gcc.sh'
-#setDebug
-debug="--enable-debug"
+setDebug
+#debug="--enable-debug"
 dir=`pwd`
 phpPath=$(cd "$dir/../php"; pwd)
 depend=$(cd "$dir/../source/depend"; pwd)
 cd $dir/../source/php
-
 # 删除Makefile
 if [ -f "Makefile" ]; then
     sudo make clean

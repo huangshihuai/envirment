@@ -20,7 +20,7 @@ function createDir() {
     dir="$webPath $webPath/sbin/ $webPath/conf/ $webPath/cache"
     echo "创建nginx文件夹:$dir"
     mkdir $dir
-   
+
     # 创建缓存文件目录
     cache=$(cd "$webPath/cache"; pwd)
     dir="$cache/client_body $cache/fastcgi $cache/proxy $cache/scgi $cache/uwsgi"
@@ -47,6 +47,7 @@ function setLibrary() {
         fi
     done
 }
+
 # 输入用户和组
 userGroup
 # 创建必要的文件夹

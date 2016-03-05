@@ -118,7 +118,6 @@ function makeInstall() {
         --enable-shared \
         --enable-threads=posix \
         --enable-checking=release \
-        --with-system-zlib \
         --enable-__cxa_atexit \
         --enable-checking=release \
         --enable-languages=c,c++,objc,obj-c++,java \
