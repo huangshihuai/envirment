@@ -49,7 +49,9 @@ function setLibrary() {
 }
 
 # 输入用户和组
-userGroup
+#userGroup
+user=root
+group=root
 # 创建必要的文件夹
 createDir
 
@@ -62,6 +64,9 @@ createDir
 #设置pcre文件路径
 # setLibrary "pcre"
 # pcre="$pathDir"
+
+# gcc 路径
+source './library/export_gcc.sh'
 
 # 设置变量
 # nginx 文件路径
@@ -118,8 +123,10 @@ sudo make clean
     --without-mail_pop3_module \
     --without-mail_imap_module \
     --without-mail_smtp_module \
-    --with-md5-asm --with-md5="$openssl" \
-    --with-sha1-asm --with-sha1="$openssl" \
+    --with-md5-asm \
+    --with-md5="$openssl" \
+    --with-sha1-asm \
+    --with-sha1="$openssl" \
     --with-openssl="$openssl" \
     --with-pcre="$pcre" \
     --with-pcre-jit \
@@ -132,7 +139,7 @@ sudo make clean
     --without-http_memcached_module \
     --without-http_referer_module \
     --without-http_proxy_module \
-    --without-http_scgi_module
+    --without-http_scgi_module \
     --without-http_split_clients_module \
     --without-http_upstream_ip_hash_module \
     --without-http_uwsgi_module \
