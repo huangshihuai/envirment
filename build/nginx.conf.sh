@@ -1,4 +1,12 @@
 #!/bin/bash
+function checkGcc() {
+    if [ -z "$CC"];then
+        echo "use system default gcc:[yes/no]"
+        read gcc
+        if [ "$gcc" eq "yes" ];then
+        fi
+    fi
+}
 # 设置nginx用户,所有组
 function userGroup(){
     echo -n "输入user:"
