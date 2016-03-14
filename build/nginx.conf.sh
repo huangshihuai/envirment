@@ -1,12 +1,4 @@
 #!/bin/bash
-function checkGcc() {
-    if [ -z "$CC"];then
-        echo "use system default gcc:[yes/no]"
-        read gcc
-        if [ "$gcc" eq "yes" ];then
-        fi
-    fi
-}
 # 设置nginx用户,所有组
 function userGroup(){
     echo -n "输入user:"
@@ -63,19 +55,9 @@ group=root
 # 创建必要的文件夹
 createDir
 
-# 设置openssl路径
-# setLibrary "openssl"
-# openssl="$pathDir"
-# 设置zlib路径
-# setLibrary "zlib"
-# zlib="$pathDir"
-#设置pcre文件路径
-# setLibrary "pcre"
-# pcre="$pathDir"
-
 # gcc 路径
+source ./root.sh
 source './library/export_gcc.sh'
-
 # 设置变量
 # nginx 文件路径
 sourcePath=$(cd "$nowPath/../source/nginx"; pwd)

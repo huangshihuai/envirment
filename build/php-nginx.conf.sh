@@ -14,6 +14,7 @@ function setDebug() {
         fi
     done
 }
+source ./root.sh
 source './library/export_gcc.sh'
 setDebug
 #debug="--enable-debug"
