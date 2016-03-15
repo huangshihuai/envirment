@@ -16,6 +16,7 @@ function setDebug() {
 }
 source ./root.sh
 source './library/export_gcc.sh'
+source ./xml2-config.sh
 setDebug
 #debug="--enable-debug"
 dir=`pwd`
@@ -30,7 +31,7 @@ fi
 
 openssl=$(cd "$dir/../depend/openssl"; pwd)
 curl=$(cd "$dir/../depend/curl"; pwd)
-t1lib=$(cd "$dir/../depend/t1lib"; pwd)
+t1lib=$(cd "$dir/../depend/t1lib/lib"; pwd)
 zlib=$(cd "$dir/../depend/zlib"; pwd)
 xml=$(cd "$dir/../depend/xml"; pwd)
 jpeg=$(cd "$dir/../depend/jpeg"; pwd)
