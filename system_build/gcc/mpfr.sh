@@ -1,8 +1,6 @@
 #!/bin/bash
 
 localPath=`pwd`
-# 安装目录
-Install=""
 # 文件路径
 File=""
 
@@ -34,34 +32,6 @@ function checkStrIsNull() {
     fi
 }
 
-function checkConfig() {
-    checkFile "$1"
-    conf="$1"
-    local install=`cat "$conf" | grep install`
-    checkStrIsNull $install
-    local install=`echo "$install" | cut -d ':' -f 2`
-    checkStrIsNull "$install"
-    local install="$localPath/..$install"
-    checkDir "$install"
-    local out=$(cd "$install"; pwd)
-    libwith=`cat "$conf" | grep libwith`
-    checkStrIsNull "$libwith"
-    libwith=${libwith//.out/$out}
-    libwith=`echo "$libwith" | cut -d ':' -f 2`
-    checkStrIsNull $libwith
-}
-
-function getDepend() {
-    withConf=""
-    local configs="gmp_config"
-    local config
-    for config in $configs
-    do
-        checkConfig "../config/gmp_config"
-        withConf="${withConf}"" ""${libwith}"
-    done
-}
-
 function checkSource() {
     local sources=`cat "$config" | grep sources`
     local sources=`echo "$sources" | cut -d ':' -f 2`
@@ -77,17 +47,6 @@ function checkSource() {
     File=$(cd $dependSource; pwd)
 }
 
-function installProduct() {
-    local install=`cat "$config" | grep install`
-    local install=`echo "$install" | cut -d ':' -f 2`
-    local dependInstall="$localPath/..$install"
-    if [ -d "$dependInstall" ]; then
-        sudo rm -rf "$dependInstall"
-    fi
-    mkdir $dependInstall
-    Install=$(cd "$dependInstall"; pwd)
-}
-
 function makeInstall() {
     cd $File
     if [ -f "Makefile" ]; then
@@ -95,7 +54,7 @@ function makeInstall() {
         sudo rm "Makefile"
      fi
      echo "install mpfr"
-     ./configure --prefix="$Install" $withConf >/dev/null 2>&1
+     ./configure >/dev/null 2>&1
      if [ ! -f "Makefile" ]; then
          echo "not fount MakeFile"
          exit
@@ -106,7 +65,5 @@ function makeInstall() {
      echo "install mpfr ok"
 }
 
-getDepend
 checkSource
-installProduct
 makeInstall

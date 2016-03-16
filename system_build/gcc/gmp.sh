@@ -2,17 +2,10 @@
 
 localPath=`pwd`
 # 安装目录
-Install=""
 # 文件路径
 File=""
 
 config="../config/gmp_config"
-
-if [ -n "$1" ]; then
-    if [ -f "$s1" ]; then
-        config="$1"
-    fi
-fi
 
 function checkFile() {
     if [ ! -f "$1" ]; then
@@ -54,17 +47,6 @@ function checkSource() {
     File=$(cd $dependSource; pwd)
 }
 
-function installProduct() {
-    local install=`cat "$config" | grep install`
-    local install=`echo "$install" | cut -d ':' -f 2`
-    local dependInstall="$localPath/..$install"
-    if [ -d "$dependInstall" ]; then
-        sudo rm -rf "$dependInstall"
-    fi
-    mkdir $dependInstall
-    Install=$(cd "$dependInstall"; pwd)
-}
-
 function makeInstall() {
     cd "$File"
     if [ -f "Makefile" ]; then
@@ -72,7 +54,7 @@ function makeInstall() {
         sudo rm "Makefile"
     fi
     echo "install gmp"
-    ../configure --prefix="$Install" >/dev/null 2>&1
+    ../configure  >/dev/null 2>&1
     sudo make clean >/dev/null 2>&1
     make >/dev/null 2>&1
     make install >/dev/null 2>&1
@@ -80,5 +62,4 @@ function makeInstall() {
  }
 
 checkSource
-installProduct
 makeInstall
