@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PHP_VERSION=5.6.17
-PHP_CONF=${}
+#PHP_CONF=${}
 
 ROOT="$(cd ..; pwd)"
 LIBPATH="$ROOT/lib/gcc-4.9.0"
