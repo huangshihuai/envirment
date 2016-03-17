@@ -48,8 +48,6 @@ function checkSource() {
     File=$(cd $dependSource; pwd)
 }
 
-
-
 function makeInstall() {
     cd $File
     if [ -f "Makefile" ]; then
@@ -86,7 +84,7 @@ function makeInstall() {
     fi
     echo "install gcc"
     sudo make clean >/dev/null 2>&1
-    make -j2 >/dev/null 2>&1
+    make -j2 #>/dev/null 2>&1
     make install 
     echo "install gcc ok"
 }
