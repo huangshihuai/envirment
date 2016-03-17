@@ -8,12 +8,6 @@ File=""
 
 config="../config/gcc_config"
 
-if [ -n "$1" ]; then
-    if [ -f "$s1" ]; then
-        config="$1"
-    fi
-fi
-
 function checkFile() {
     if [ ! -f "$1" ]; then
         echo "'$1' file not fount"
@@ -63,17 +57,27 @@ function makeInstall() {
     # 获取系统
     sysName=`head -n 1 /etc/issue | cut -d ' ' -f 1`
     sysName="x86_64-$sysName-linux"
-    ../configure --prefix="$Install" \
-        --disable-multilib \
-        --enable-bootstrap \
+    ../configure --prefix=/usr \
+        --mandir=/usr/share/man \
+        --infodir=/usr/share/info \
         --enable-shared \
         --enable-threads=posix \
+        --disable-checking \
+        --with-system-zlib \
+        --enable-libunwind-exceptions \
+        --enable-libjava-multilib \
+        --with-ppl \
+        --with-cloog \
+        --with-tune=generic \
+        --with-arch_32=i686 \
+        --enable-java-awt=gtk \
+        --disable-multilib \
+        --enable-bootstrap \
         --enable-checking=release \
         --enable-__cxa_atexit \
         --enable-checking=release \
-        --enable-languages=c,c++,objc,obj-c++,java \
-        --build="$sysName" \
-        $withConf >/dev/null 2>&1
+        --enable-languages=c,c++,java \
+        --build="$sysName" #>/dev/null 2>&1
     if [ ! -f "Makefile" ]; then
         echo "not fount MakeFile"
         exit
@@ -85,7 +89,5 @@ function makeInstall() {
     echo "install gcc ok"
 }
 
-getDepend
 checkSource
-installProduct
 makeInstall
