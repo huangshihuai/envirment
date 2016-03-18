@@ -46,7 +46,7 @@ mkdir "php-build" && cd "php-build"
 # 编译所有的扩展
 ../configure --prefix=$phpPath \
     --with-config-file-path=$phpPath/etc \
-    --with-config-file-scan-dir=$phpPath/ext \
+    --with-config-file-scan-dir=$phpPath/etc/ext \
     --enable-bcmath \
     --enable-fpm \
     --enable-gd-native-ttf \

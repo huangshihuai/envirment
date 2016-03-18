@@ -17,6 +17,7 @@ if [[ "$oldRoot" != "$ROOT" ]]; then
     echo "替换数据-路径替换"
     sed -i "s:${oldRoot}:${ROOT}:g" `grep "${oldRoot}" -rl ./config/php_config`
 fi
+exit
 for line in `cat ./config/php_config`; do
     if [ ! -f "$line" ]; then
         continue

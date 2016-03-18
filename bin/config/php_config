@@ -1,4 +1,19 @@
 ROOT=/root/envirment
+binary_files=(
+    php/bin/php
+    php/bin/php-cgi
+    php/sbin/php-fpm
+)
+text_file=(
+    php/bin/pear
+    php/bin/peardev
+    php/bin/pecl
+    php/bin/phar
+    php/bin/php-config
+    php/etc/pear.conf
+    php/etc/php-fpm.conf
+    php/etc/php.ini
+)
 /root/envirment/php/sbin/php-fpm
 /root/envirment/php/bin/php-cgi
 /root/envirment/php/bin/php
