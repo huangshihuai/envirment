@@ -7,13 +7,6 @@ Install=""
 File=""
 
 config="../config/png_config"
-
-if [ -n "$1" ]; then
-    if [ -f "$s1" ]; then
-        config="$1"
-    fi
-fi
-
 function checkFile() {
     if [ ! -f "$1" ]; then
         echo "'$1' file not fount"
@@ -84,14 +77,13 @@ function makeInstall() {
      export CFLAGS="-I$zlibInstall/include"
      ./configure --prefix="$Install" \
          --enable-shared \
-         --with-zlib-prefix="$zlibInstall" >/dev/null 2>&1
+         --with-zlib-prefix="$zlibInstall" #>/dev/null 2>&1
      sudo make clean >/dev/null 2>&1
-     make >/dev/null 2>&1
+     make #>/dev/null 2>&1
      make install >/dev/null 2>&1
      echo "install png ok"
  }
 
-source './export_gcc.sh'
 checkZlib
 checkSource
 installProduct

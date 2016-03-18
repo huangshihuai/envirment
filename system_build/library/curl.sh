@@ -52,17 +52,16 @@ function makeInstall() {
     ./buildconf >/dev/null 2>&1
     ./configure --prefix="$curlInstall" \
         --with-zlib \
-        --with-ssl="$opensslLib" >/dev/null 2>&1
+        --with-ssl="$opensslLib" #>/dev/null 2>&1
     if [ ! -f "Makefile" ]; then
         echo "not fount Makefile"
         exit
     fi
     sudo make clean >/dev/null 2>&1
-    make >/dev/null 2>&1
+    make #>/dev/null 2>&1
     make install >/dev/null 2>&1
     echo "install curl ok"
 }
-source './export_gcc.sh'
 checkDir
 delCurlDir
 makeInstall

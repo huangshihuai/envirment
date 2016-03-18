@@ -7,12 +7,6 @@ File=""
 
 config=../config/sys_php_config
 
-if [ -n "$1" ]; then
-    if [ -f "$s1" ]; then
-        config="$1"
-    fi
-fi
-
 function checkFile() {
     if [ ! -f "$1" ]; then
         echo "'$1' file not fount"
@@ -89,13 +83,13 @@ function makeInstall() {
         sudo make clean > /dev/null 2>&1
         sudo rm "Makefile" > /dev/null 2>&1
     fi
-    ../configure > /dev/null 2>&1
+    ../configure #> /dev/null 2>&1
     if [ "$?" != "0" ]; then
         echo "configure error,this page:$page"
         return
     fi
     sudo make clean > /dev/null 2>&1
-    make > /dev/null 2>&1
+    make #>/dev/null 2>&1
     if [ "$?" != "0" ]; then
         echo "make error, this page:$page"
         return;
@@ -107,7 +101,6 @@ function makeInstall() {
     fi
  }
 
-source './export_gcc.sh'
 checkSource
 getPage
 echo "install OK"

@@ -69,7 +69,7 @@ function makeInstall() {
      echo "install xml"
      ./configure --prefix="$Install" $withConf #>/dev/null 2>&1
      sudo make clean >/dev/null 2>&1
-     make >/dev/null 2>&1
+     make #>/dev/null 2>&1
      make install >/dev/null 2>&1
      echo "install xml ok"
  }
@@ -102,9 +102,6 @@ function getDepend() {
     done
 }
 
-source './export_gcc.sh'
-echo $CC
-echo $LD_LIBRARY_PATH
 getDepend
 checkSource
 installProduct

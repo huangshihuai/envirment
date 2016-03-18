@@ -8,12 +8,6 @@ File=""
 
 config=../config/freetype_config
 
-if [ -n "$1" ]; then
-    if [ -f "$s1" ]; then
-        config="$1"
-    fi
-fi
-
 function checkDir() {
     local sources=`cat "$config" | grep sources`
     local sources=`echo "$sources" | cut -d ':' -f 2`
@@ -46,13 +40,13 @@ function makeInstall() {
          sudo make clean >/dev/null 2>&1
      fi
      echo "install freetype"
-     ./configure --prefix="$Install" --enable-shared >/dev/null 2>&1
+     ./configure --prefix="$Install" --enable-shared #>/dev/null 2>&1
      sudo make clean >/dev/null 2>&1
-     make >/dev/null 2>&1
+     make #>/dev/null 2>&1
      make install >/dev/null 2>&1
      echo "install freetype Ok"
  }
-source './export_gcc.sh'
+
 checkDir
 delOpensslDir
 makeInstall

@@ -41,19 +41,18 @@ function makeInstall() {
      fi
      echo "install openssl"
     ./config --prefix="$opensslInstall" \
-        --openssldir="$opensslInstall/ssl" >/dev/null 2>&1
-    ./Configure >/dev/null 2>&1 &
+        --openssldir="$opensslInstall/ssl" #>/dev/null 2>&1
+    ./Configure #>/dev/null 2>&1 &
     if [ ! -f "Makefile" ]; then
         echo "not fount MakeFile"
         exit
     fi
     sudo make clean >/dev/null 2>&1
-    make >/dev/null 2>&1
+    make #>/dev/null 2>&1
     make install >/dev/null 2>&1
     echo "install openssl ok"
 }
 
-source './export_gcc.sh'
 checkDir
 delOpensslDir
 makeInstall

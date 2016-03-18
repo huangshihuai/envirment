@@ -8,32 +8,6 @@ File=""
 
 config=../config/tiff_config
 
-if [ -n "$1" ]; then
-    if [ -f "$s1" ]; then
-        config="$1"
-    fi
-fi
-
-function checkFile() {
-    if [ ! -f "$1" ]; then
-        echo "'$1' file not fount"
-        exit
-    fi
-}
-
-function checkDir() {
-    if [ ! -d "$1" ]; then
-        echo "'$1' dir not fount"
-    fi
-}
-
-function checkStrIsNull() {
-    if [ -z "$1" ]; then
-        echo "this config is null"
-        exit
-    fi
-}
-
 function checkSource() {
     local sources=`cat "$config" | grep sources`
     local sources=`echo "$sources" | cut -d ':' -f 2`
@@ -68,14 +42,13 @@ function makeInstall() {
      fi
      echo "install tiff"
      ./configure --prefix="$Install" \
-         --enable-shared >/dev/null 2>&1
+         --enable-shared #>/dev/null 2>&1
      sudo make clean >/dev/null 2>&1
-     make >/dev/null 2>&1
+     make #>/dev/null 2>&1
      make install >/dev/null 2>&1
      echo "install tiff ok"
  }
 
-source './export_gcc.sh'
 checkSource
 installProduct
 makeInstall

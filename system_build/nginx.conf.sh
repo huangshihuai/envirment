@@ -55,9 +55,6 @@ group=root
 # 创建必要的文件夹
 createDir
 
-# gcc 路径
-source ./root.sh
-source './library/export_gcc.sh'
 # 设置变量
 # nginx 文件路径
 sourcePath=$(cd "$nowPath/../source/nginx"; pwd)

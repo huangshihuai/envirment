@@ -40,17 +40,16 @@ function makeInstall() {
         rm "Makefile"
      fi
      echo "install t1lib"
-     ./configure --prefix="$t1libInstall" >/dev/null 2>&1
+     ./configure --prefix="$t1libInstall" #>/dev/null 2>&1
      if [ ! -f "Makefile" ]; then
          echo "not fount MakeFile"
          exit
      fi
      sudo make clean >/dev/null 2>&1
-     make without_doc >/dev/null 2>&1
+     make without_doc #>/dev/null 2>&1
      make install >/dev/null 2>&1
      echo "install t1lib ok"
 }
-source './export_gcc.sh'
 checkDir
 delOpensslDir
 makeInstall

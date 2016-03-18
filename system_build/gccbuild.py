@@ -2,6 +2,9 @@ import os
 #coding=utf-8
 # 存储shell的名字,按照依赖顺序变异
 shName=[
+        'cloog.sh',
+        'isl.sh',
+        'zlib.sh',
         'gmp.sh',
         'mpfr.sh',
         'mpc.sh',

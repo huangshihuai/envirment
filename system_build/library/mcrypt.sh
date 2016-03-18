@@ -8,32 +8,6 @@ File=""
 
 config=../config/mcrypt_config
 
-if [ -n "$1" ]; then
-    if [ -f "$s1" ]; then
-        config="$1"
-    fi
-fi
-
-function checkFile() {
-    if [ ! -f "$1" ]; then
-        echo "'$1' file not fount"
-        exit
-    fi
-}
-
-function checkDir() {
-    if [ ! -d "$1" ]; then
-        echo "'$1' dir not fount"
-    fi
-}
-
-function checkStrIsNull() {
-    if [ -z "$1" ]; then
-        echo "this config is null"
-        exit
-    fi
-}
-
 function checkSource() {
     local sources=`cat "$config" | grep sources`
     local sources=`echo "$sources" | cut -d ':' -f 2`
@@ -67,14 +41,13 @@ function makeInstall() {
          sudo rm "Makefile"
      fi
      echo "install mcrypt"
-     ./configure --prefix="$Install" >/dev/null 2>&1
+     ./configure --prefix="$Install" #>/dev/null 2>&1
      sudo make clean >/dev/null 2>&1
-     make >/dev/null 2>&1
+     make #>/dev/null 2>&1
      make install >/dev/null 2>&1
      echo "install mcrypt ok"
  }
 
-source './export_gcc.sh'
 checkSource
 installProduct
 makeInstall

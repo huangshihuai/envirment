@@ -14,16 +14,6 @@ shName=[
         'curl.sh',
         'xml.sh'
         ]
-cc=""
-ep=""
-#检查gcc配置文件以及mfr路径
-if os.path.exists('../depend/gcc-4.9.0/') == False or os.path.exists('../depend/mpc') == False:
-    print "defalut gcc building not fount\nuse system gcc building"
-else:
-    gcc=os.path.abspath('../depend/gcc-4.9.0/')
-    ep=os.path.abspath('../depend/mpc')
-
-
 # shell 地址
 shPath=os.path.abspath("./library/")
 if os.path.exists(shPath) == False:
