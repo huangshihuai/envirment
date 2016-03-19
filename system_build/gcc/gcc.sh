@@ -65,18 +65,16 @@ function makeInstall() {
         --disable-checking \
         --with-system-zlib \
         --enable-libunwind-exceptions \
-        --enable-libjava-multilib \
         --with-ppl \
         --with-cloog \
         --with-tune=generic \
         --with-arch_32=i686 \
-        --enable-java-awt=gtk \
         --disable-multilib \
         --enable-bootstrap \
         --enable-checking=release \
         --enable-__cxa_atexit \
         --enable-checking=release \
-        --enable-languages=c,c++,java \
+        --enable-languages=c,c++ \
         --build="$sysName" #>/dev/null 2>&1
     if [ ! -f "Makefile" ]; then
         echo "not fount MakeFile"
