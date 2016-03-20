@@ -10,9 +10,16 @@ text_file=(
     php/bin/pecl
     php/bin/phar
     php/bin/php-config
+    php/bin/phpize
     php/etc/pear.conf
     php/etc/php-fpm.conf
     php/etc/php.ini
+    php/etc/ext
+    php/include
+    php/lib/php/data/PEAR
+    php/lib/php/pearcmd.php
+    php/lib/php/peclcmd.php
+
 )
 /root/envirment/php/sbin/php-fpm
 /root/envirment/php/bin/php-cgi
