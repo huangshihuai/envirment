@@ -64,10 +64,10 @@ mkdir "php-build" && cd "php-build"
     --enable-fd-setsize=4096 \
     --enable-opcache \
     --with-gd \
-    --with-openssl="$openssl" \
-    --with-zlib="$zlib" \
     --with-pear \
     --with-xmlrpc \
+    --with-openssl="$openssl" \
+    --with-zlib="$zlib" \
     --with-curl="$curl" \
     --with-mcrypt="$libmcrypt" \
     --with-t1lib=$t1lib \
