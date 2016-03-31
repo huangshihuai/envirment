@@ -21,6 +21,3 @@ text_file=(
     php/lib/php/peclcmd.php
 
 )
-/root/envirment/php/sbin/php-fpm
-/root/envirment/php/bin/php-cgi
-/root/envirment/php/bin/php
