@@ -19,5 +19,11 @@ text_file=(
     php/lib/php/data/PEAR
     php/lib/php/pearcmd.php
     php/lib/php/peclcmd.php
-
+)
+serialized_files=(
+    php/etc/pear.conf
+    php/lib/php/.registry
+)
+macro_files=(
+    php/etc
 )

@@ -1,15 +1,17 @@
 process_text(){
     if grep -lI "$old_dir" $1 >/dev/null; then
-        sed -i "s+$old_dir+$ODP_ROOT+g" $1
+        sed -i "s+$old_dir+$ENV_ROOT+g" $1
     fi
 }
 process_binary() {
-    local patchelf=$ODP_ROOT/bin/patchelf
-    local new_linker=$ODP_LIB_PATH/ld-linux-x86-64.so.2
+    local patchelf=$ENV_ROOT/bin/patchelf
+    local new_linker=$ENV_LIB_PATH/ld-linux-x86-64.so.2
     local old_linker=`$patchelf --print-interpreter $1`
     if [[ $old_linker == $new_linker ]]; then
         return;
     fi
+    echo $old_linker
+    echo $new_linker
     return;
     $patchelf --set-interpreter $new_linker $1
     binary_installed="$binary_installed `basename $1`"
@@ -17,7 +19,7 @@ process_binary() {
 apply_files() {
     local param=$1
     for dir in ${param[*]}; do
-        dir=$ODP_ROOT/$dir
+        dir=$ENV_ROOT/$dir
         if [[ -d $dir ]]; then
             local files=`find $dir -type f`
         elif [[ -f $dir ]]; then
@@ -27,13 +29,13 @@ apply_files() {
 }
 
 init_env() {
-    ODP_ROOT=$(readlink -f `dirname $BASE_SOURCE[0]`/..)
-    ODP_LIB_PATH=$ODP_ROOT/lib/gcc-4.9.0
+    ENV_ROOT=$(readlink -f `dirname $BASE_SOURCE[0]`/..)
+    ENV_LIB_PATH=$ENV_ROOT/lib/gcc-4.9.0
 }
 install() {
     binary_installed=''
     package_installed=''
-    local configs=`ls $ODP_ROOT/bin/config/*/config.sh`
+    local configs=`ls $ENV_ROOT/bin/config/*/config.sh`
 
     for config in ${configs[*]}; do
         local package=$(basename `dirname $config`)
@@ -45,7 +47,7 @@ install() {
         macros=
         source $config
         apply_files "${binary_files[*]}" process_binary
-        if [[ $old_dir == $ODP_ROOT ]]; then
+        if [[ $old_dir == $ENV_ROOT ]]; then
             continue;
         fi
         apply_files "${text_files[*]}" process_text
