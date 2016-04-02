@@ -10,11 +10,15 @@ process_binary() {
     if [[ $old_linker == $new_linker ]]; then
         return;
     fi
-    echo $old_linker
-    echo $new_linker
-    return;
     $patchelf --set-interpreter $new_linker $1
     binary_installed="$binary_installed `basename $1`"
+}
+process_macro(){
+    echo '22';
+    echo $1
+    if ! grep -lI '#IF' $1 >>/root/tp; then
+        return;
+    fi
 }
 apply_files() {
     local param=$1
@@ -51,6 +55,7 @@ install() {
             continue;
         fi
         apply_files "${text_files[*]}" process_text
+        apply_files "${macro_files[*]}" process_macro
     done
 }
 

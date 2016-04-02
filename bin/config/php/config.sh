@@ -4,7 +4,7 @@ binary_files=(
     php/bin/php-cgi
     php/sbin/php-fpm
 )
-text_file=(
+text_files=(
     php/bin/pear
     php/bin/peardev
     php/bin/pecl
