@@ -1,4 +1,4 @@
-ROOT=/root/envirment
+old_dir=/root/envirment
 binary_files=(
     php/bin/php
     php/bin/php-cgi
@@ -26,4 +26,6 @@ serialized_files=(
 )
 macro_files=(
     php/etc
+)
+macros=(
 )

@@ -17,6 +17,10 @@ process_macro(){
     if ! grep -lI '#IF' $1 >>/root/tp; then
         return;
     fi
+    local m
+    for m in ${macros[*]};do
+        echo $m
+    done
 }
 apply_files() {
     local param=$1
@@ -34,6 +38,7 @@ init_env() {
     ENV_ROOT=$(readlink -f `dirname $BASE_SOURCE[0]`/..)
     ENV_LIB_PATH=$ENV_ROOT/lib/gcc-4.9.0
 }
+
 install() {
     binary_installed=''
     package_installed=''
@@ -53,7 +58,8 @@ install() {
             continue;
         fi
         apply_files "${text_files[*]}" process_text
-        #apply_files "${macro_files[*]}" process_macro
+        apply_files "${macro_files[*]}" process_macro
+        process_text $config
     done
 }
 
