@@ -14,8 +14,6 @@ process_binary() {
     binary_installed="$binary_installed `basename $1`"
 }
 process_macro(){
-    echo '22';
-    echo $1
     if ! grep -lI '#IF' $1 >>/root/tp; then
         return;
     fi
@@ -55,7 +53,7 @@ install() {
             continue;
         fi
         apply_files "${text_files[*]}" process_text
-        apply_files "${macro_files[*]}" process_macro
+        #apply_files "${macro_files[*]}" process_macro
     done
 }
 
