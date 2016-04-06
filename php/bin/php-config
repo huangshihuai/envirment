@@ -1,0 +1,90 @@
+#! /bin/sh
+
+SED="/bin/sed"
+prefix="/root/envirment-t/php"
+datarootdir="/root/envirment-t/php/php"
+exec_prefix="${prefix}"
+version="5.6.17"
+vernum="50617"
+include_dir="${prefix}/include/php"
+includes="-I$include_dir -I$include_dir/main -I$include_dir/TSRM -I$include_dir/Zend -I$include_dir/ext -I$include_dir/ext/date/lib"
+ldflags=" -L/root/envirment-t/depend/xml/lib -L/root/envirment-t/depend/zlib/lib -L/root/envirment-t/depend/openssl/lib -L/root/envirment-t/depend/curl/lib -L/root/envirment-t/depend/jpeg/lib -L/root/envirment-t/depend/png/lib -L/root/envirment-t/depend/freetype/lib -L/root/envirment-t/depend/t1lib/lib -L/root/envirment-t/depend/mcrypt/lib"
+libs="-lcrypt   -lcrypto -lssl -lcrypto -lz -lresolv -lcrypt -lrt -lmcrypt -lltdl -lt1 -lX11 -lXpm -lpng -lz -ljpeg -lcrypto -lssl -lcrypto -lcurl -lz -lcrypto -lssl -lcrypto -lrt -lm -ldl -lnsl  -lrt -lxml2 -lz -lm -lcurl -lz -lrt -lxml2 -lz -lm -lfreetype -lz -lxml2 -lz -lm -lxml2 -lz -lm -lcrypt -lxml2 -lz -lm -lxml2 -lz -lm -lxml2 -lz -lm -lxml2 -lz -lm -lcrypt "
+extension_dir='/root/envirment-t/php/ext'
+man_dir=`eval echo ${datarootdir}/man`
+program_prefix=""
+program_suffix=""
+exe_extension=""
+php_cli_binary=NONE
+php_cgi_binary=NONE
+configure_options=" '--prefix=/root/envirment-t/php' '--with-config-file-path=/root/envirment-t/php/etc' '--with-config-file-scan-dir=/root/envirment-t/php/etc/ext' '--enable-bcmath' '--enable-fpm' '--enable-gd-native-ttf' '--enable-mbstring' '--enable-shmop' '--enable-soap' '--enable-sockets' '--enable-sysvsem' '--enable-pcntl' '--enable-zip' '--enable-gd-jis-conv' '--enable-ftp' '--enable-calendar' '--enable-exif' '--enable-fd-setsize=4096' '--enable-opcache' '--with-gd' '--with-pear' '--with-xmlrpc' '--with-openssl=/root/envirment-t/depend/openssl' '--with-zlib=/root/envirment-t/depend/zlib' '--with-curl=/root/envirment-t/depend/curl' '--with-mcrypt=/root/envirment-t/depend/mcrypt' '--with-t1lib=/root/envirment-t/depend/t1lib' '--with-freetype-dir=/root/envirment-t/depend/freetype' '--with-jpeg-dir=/root/envirment-t/depend/jpeg' '--with-png-dir=/root/envirment-t/depend/png' '--with-libxml-dir=/root/envirment-t/depend/xml' '--with-mysql' '--with-pdo-mysql' '--with-xpm-dir' '--with-gettext' '--with-iconv-dir' '--with-fpm-user=www' '--with-fpm-group=www' '--enable-debug'"
+php_sapis=" cli fpm cgi"
+
+# Set php_cli_binary and php_cgi_binary if available
+for sapi in $php_sapis; do
+  case $sapi in
+  cli)
+    php_cli_binary="${exec_prefix}/bin/${program_prefix}php${program_suffix}${exe_extension}"
+    ;;
+  cgi)
+    php_cgi_binary="${exec_prefix}/bin/${program_prefix}php-cgi${program_suffix}${exe_extension}"
+    ;;
+  esac
+done
+
+# Determine which (if any) php binary is available
+if test "$php_cli_binary" != "NONE"; then
+  php_binary="$php_cli_binary"
+else
+  php_binary="$php_cgi_binary"
+fi
+
+# Remove quotes
+configure_options=`echo $configure_options | $SED -e "s#'##g"`
+
+case "$1" in
+--prefix)
+  echo $prefix;;
+--includes)
+  echo $includes;;
+--ldflags)
+  echo $ldflags;;
+--libs)
+  echo $libs;;
+--extension-dir)
+  echo $extension_dir;;
+--include-dir)
+  echo $include_dir;;
+--php-binary)
+  echo $php_binary;;
+--php-sapis)
+  echo $php_sapis;;
+--configure-options)
+  echo $configure_options;;
+--man-dir)
+  echo $man_dir;;
+--version)
+  echo $version;;
+--vernum)
+  echo $vernum;;
+*)
+  cat << EOF
+Usage: $0 [OPTION]
+Options:
+  --prefix            [$prefix]
+  --includes          [$includes]
+  --ldflags           [$ldflags]
+  --libs              [$libs]
+  --extension-dir     [$extension_dir]
+  --include-dir       [$include_dir]
+  --man-dir           [$man_dir]
+  --php-binary        [$php_binary]
+  --php-sapis         [$php_sapis]
+  --configure-options [$configure_options]
+  --version           [$version]
+  --vernum            [$vernum]
+EOF
+  exit 1;;
+esac
+
+exit 0

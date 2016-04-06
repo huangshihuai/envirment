@@ -1,0 +1,14 @@
+[31-Mar-2016 22:13:22] ERROR: [pool www] cannot get uid for user 'www-data'
+[31-Mar-2016 22:13:22] ERROR: FPM initialization failed
+[31-Mar-2016 22:14:19] ERROR: [pool www] cannot get uid for user 'www-data'
+[31-Mar-2016 22:14:19] ERROR: FPM initialization failed
+[04-Apr-2016 22:59:21] ERROR: [pool www] cannot get uid for user 'www-data'
+[04-Apr-2016 22:59:22] ERROR: FPM initialization failed
+[04-Apr-2016 22:59:38] ERROR: [pool www] cannot get uid for user 'www-data'
+[04-Apr-2016 22:59:38] ERROR: FPM initialization failed
+[04-Apr-2016 23:00:39] ERROR: [pool www] cannot get uid for user 'www-data'
+[04-Apr-2016 23:00:39] ERROR: FPM initialization failed
+[04-Apr-2016 23:01:16] ERROR: [pool www] cannot get uid for user 'www-data'
+[04-Apr-2016 23:01:16] ERROR: FPM initialization failed
+[04-Apr-2016 23:01:30] ERROR: [pool www] cannot get uid for user 'www-data'
+[04-Apr-2016 23:01:30] ERROR: FPM initialization failed
