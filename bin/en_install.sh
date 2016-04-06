@@ -3,6 +3,21 @@ process_text(){
         sed -i "s+$old_dir+$ENV_ROOT+g" $1
     fi
 }
+process_serialized() {
+    export PHP_INI_SCAN_DIR='/not_exists'
+    local php=$ENV_ROOT/php/bin/php
+    grep -P '^#' $1 >$1.new || true # 对php/etc/pear.php特殊处理
+    cat $1 | grep -Pv '^#' | $php -r '
+        $a=file_get_contents("php://stdin");
+        $a=unserialize($a);
+        echo "<?php\n echo serialize(";
+        var_export($a);
+        echo ");";
+    ' | sed "s+$old_dir+$ENV_ROOT+g" | $php >> $1.new
+    mv $1.new $1
+
+}
+
 process_binary() {
     local patchelf=$ENV_ROOT/bin/patchelf
     local new_linker=$ENV_LIB_PATH/ld-linux-x86-64.so.2
@@ -12,15 +27,6 @@ process_binary() {
     fi
     $patchelf --set-interpreter $new_linker $1
     binary_installed="$binary_installed `basename $1`"
-}
-process_macro(){
-    if ! grep -lI '#IF' $1 >>/root/tp; then
-        return;
-    fi
-    local m
-    for m in ${macros[*]};do
-        echo $m
-    done
 }
 apply_files() {
     local param=$1
@@ -49,18 +55,23 @@ install() {
         local binary_files=
         local text_files=
         local serialized_files=
-        local macro_files=
         old_dir=
-        macros=
         source $config
         apply_files "${binary_files[*]}" process_binary
         if [[ $old_dir == $ENV_ROOT ]]; then
             continue;
         fi
         apply_files "${text_files[*]}" process_text
-        apply_files "${macro_files[*]}" process_macro
+        apply_files "${serialized_files[*]}" process_serialized
         process_text $config
+        package_installed="$package_installed $package"
     done
+    if [[ -n $package_installed ]]; then
+        echo "On first use, install package:$package_installed" >&2
+    fi
+    if [[ -n $binary_installed ]]; then
+        echo "On first use, install binary:$binary_installed" >&2
+    fi
 }
 
 init_env
