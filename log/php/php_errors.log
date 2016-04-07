@@ -1,0 +1,2 @@
+[04-Apr-2016 14:59:21 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/root/envirment/php/ext/ap.so' - /root/envirment/php/ext/ap.so: cannot open shared object file: No such file or directory in Unknown on line 0
+[04-Apr-2016 14:59:38 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/root/envirment/php/ext/ap.so' - /root/envirment/php/ext/ap.so: cannot open shared object file: No such file or directory in Unknown on line 0

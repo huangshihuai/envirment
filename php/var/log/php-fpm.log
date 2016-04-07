@@ -12,3 +12,13 @@
 [04-Apr-2016 23:01:16] ERROR: FPM initialization failed
 [04-Apr-2016 23:01:30] ERROR: [pool www] cannot get uid for user 'www-data'
 [04-Apr-2016 23:01:30] ERROR: FPM initialization failed
+[07-Apr-2016 22:50:01] ERROR: [pool www] cannot get uid for user 'www'
+[07-Apr-2016 22:50:01] ERROR: FPM initialization failed
+[07-Apr-2016 22:50:29] ERROR: [pool www] cannot get uid for user 'www-data'
+[07-Apr-2016 22:50:29] ERROR: FPM initialization failed
+[07-Apr-2016 22:52:44] ERROR: [pool www] please specify user and group other than root
+[07-Apr-2016 22:52:44] ERROR: FPM initialization failed
+[07-Apr-2016 22:54:14] NOTICE: fpm is running, pid 4112
+[07-Apr-2016 22:54:14] NOTICE: ready to handle connections
+[07-Apr-2016 22:54:27] NOTICE: Terminating ...
+[07-Apr-2016 22:54:27] NOTICE: exiting, bye-bye!

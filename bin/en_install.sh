@@ -74,5 +74,42 @@ install() {
     fi
 }
 
+not() {
+    if $@; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+wait_for(){
+    local try=$1
+    shift
+    for (( ;try>0;try-- )); do
+        if $@ ; then
+            return 0
+        fi
+        echo -n .
+        sleep 1
+    done
+    return 1
+}
+
+process_exists() {
+    local pid=$1
+    local bin=$2
+    if [[ -d /proc/$pid ]]; then
+        # 获取执行文件的路径
+        local exec=`readlink -f /proc/$pid/exe`
+        if [[ $exe == $bin ]]; then
+            return 0
+        fi
+        if [[ ! -e $exe ]]; then
+            return 0
+        fi
+    fi
+    return 1
+}
+
 init_env
 install

@@ -1,0 +1,112 @@
+[07-Apr-2016 22:35:48] ERROR: [pool www] cannot get uid for user 'www-data'
+[07-Apr-2016 22:35:48] ERROR: FPM initialization failed
+[07-Apr-2016 22:36:13] ERROR: [pool www] please specify user and group other than root
+[07-Apr-2016 22:36:13] ERROR: FPM initialization failed
+[07-Apr-2016 22:36:33] ERROR: [pool www] cannot get uid for user 'work'
+[07-Apr-2016 22:36:33] ERROR: FPM initialization failed
+[07-Apr-2016 22:36:54] ERROR: [pool www] cannot get uid for user 'work'
+[07-Apr-2016 22:36:54] ERROR: FPM initialization failed
+[07-Apr-2016 22:37:13] ERROR: [pool www] cannot get uid for user 'work'
+[07-Apr-2016 22:37:13] ERROR: FPM initialization failed
+[07-Apr-2016 22:38:21] ERROR: [pool www] please specify user and group other than root
+[07-Apr-2016 22:38:21] ERROR: FPM initialization failed
+[07-Apr-2016 22:39:01] ERROR: [pool www] cannot get uid for user 'www'
+[07-Apr-2016 22:39:01] ERROR: FPM initialization failed
+[07-Apr-2016 22:39:55] ALERT: [pool www] user has not been defined
+[07-Apr-2016 22:39:55] ERROR: failed to post process the configuration
+[07-Apr-2016 22:39:55] ERROR: FPM initialization failed
+[07-Apr-2016 22:39:59] ALERT: [pool www] user has not been defined
+[07-Apr-2016 22:39:59] ERROR: failed to post process the configuration
+[07-Apr-2016 22:39:59] ERROR: FPM initialization failed
+[07-Apr-2016 22:40:50] ALERT: [pool www] user has not been defined
+[07-Apr-2016 22:40:50] ERROR: failed to post process the configuration
+[07-Apr-2016 22:40:50] ERROR: FPM initialization failed
+[07-Apr-2016 22:41:35] ALERT: [pool www] user has not been defined
+[07-Apr-2016 22:41:35] ERROR: failed to post process the configuration
+[07-Apr-2016 22:41:35] ERROR: FPM initialization failed
+[07-Apr-2016 22:43:28] ERROR: [pool www] cannot get uid for user 'www-data'
+[07-Apr-2016 22:43:28] ERROR: FPM initialization failed
+[07-Apr-2016 22:43:30] ERROR: [pool www] cannot get uid for user 'www-data'
+[07-Apr-2016 22:43:30] ERROR: FPM initialization failed
+[07-Apr-2016 22:45:35] ERROR: [pool www] cannot get uid for user 'www-data'
+[07-Apr-2016 22:45:35] ERROR: FPM initialization failed
+[07-Apr-2016 22:48:08] ERROR: [pool www] cannot get uid for user 'www-data'
+[07-Apr-2016 22:48:08] ERROR: FPM initialization failed
+[07-Apr-2016 22:54:55] ERROR: [pool www] cannot get uid for user 'www-data'
+[07-Apr-2016 22:54:55] ERROR: FPM initialization failed
+[07-Apr-2016 22:55:15] NOTICE: fpm is running, pid 4132
+[07-Apr-2016 22:55:15] NOTICE: ready to handle connections
+[07-Apr-2016 22:55:17] ERROR: unable to bind listening socket for address '127.0.0.1:9000': Address already in use (98)
+[07-Apr-2016 22:55:17] ERROR: FPM initialization failed
+[07-Apr-2016 22:55:28] NOTICE: Terminating ...
+[07-Apr-2016 22:55:28] NOTICE: exiting, bye-bye!
+[07-Apr-2016 22:55:42] NOTICE: fpm is running, pid 4186
+[07-Apr-2016 22:55:42] NOTICE: ready to handle connections
+[07-Apr-2016 22:55:52] NOTICE: Terminating ...
+[07-Apr-2016 22:55:52] NOTICE: exiting, bye-bye!
+[07-Apr-2016 22:55:54] NOTICE: fpm is running, pid 4232
+[07-Apr-2016 22:55:54] NOTICE: ready to handle connections
+[07-Apr-2016 22:56:01] NOTICE: Terminating ...
+[07-Apr-2016 22:56:01] NOTICE: exiting, bye-bye!
+[07-Apr-2016 22:56:35] NOTICE: fpm is running, pid 4334
+[07-Apr-2016 22:56:35] NOTICE: ready to handle connections
+[07-Apr-2016 22:56:46] NOTICE: Terminating ...
+[07-Apr-2016 22:56:46] NOTICE: exiting, bye-bye!
+[07-Apr-2016 22:57:28] NOTICE: fpm is running, pid 4396
+[07-Apr-2016 22:57:28] NOTICE: ready to handle connections
+[07-Apr-2016 22:58:21] NOTICE: Terminating ...
+[07-Apr-2016 22:58:21] ERROR: unable to read what child say: Bad file descriptor (9)
+[07-Apr-2016 22:58:21] ERROR: unable to read what child say: Bad file descriptor (9)
+[07-Apr-2016 22:58:21] NOTICE: exiting, bye-bye!
+[07-Apr-2016 22:59:05] NOTICE: fpm is running, pid 4461
+[07-Apr-2016 22:59:05] NOTICE: ready to handle connections
+[07-Apr-2016 22:59:26] NOTICE: Terminating ...
+[07-Apr-2016 22:59:26] NOTICE: exiting, bye-bye!
+[07-Apr-2016 23:04:10] NOTICE: fpm is running, pid 4563
+[07-Apr-2016 23:04:10] NOTICE: ready to handle connections
+[07-Apr-2016 23:04:23] NOTICE: Terminating ...
+[07-Apr-2016 23:04:23] ERROR: unable to read what child say: Bad file descriptor (9)
+[07-Apr-2016 23:04:23] ERROR: unable to read what child say: Bad file descriptor (9)
+[07-Apr-2016 23:04:23] ERROR: unable to read what child say: Bad file descriptor (9)
+[07-Apr-2016 23:04:23] ERROR: unable to read what child say: Bad file descriptor (9)
+[07-Apr-2016 23:04:23] NOTICE: exiting, bye-bye!
+[07-Apr-2016 23:16:08] NOTICE: fpm is running, pid 4733
+[07-Apr-2016 23:16:08] NOTICE: ready to handle connections
+[07-Apr-2016 23:16:56] WARNING: [pool www] child 4749 exited on signal 15 (SIGTERM) after 48.262923 seconds from start
+[07-Apr-2016 23:16:56] NOTICE: [pool www] child 4768 started
+[07-Apr-2016 23:17:16] NOTICE: Terminating ...
+[07-Apr-2016 23:17:16] NOTICE: exiting, bye-bye!
+[07-Apr-2016 23:17:25] NOTICE: fpm is running, pid 4798
+[07-Apr-2016 23:17:25] NOTICE: ready to handle connections
+[07-Apr-2016 23:18:39] NOTICE: Terminating ...
+[07-Apr-2016 23:18:39] ERROR: unable to read what child say: Bad file descriptor (9)
+[07-Apr-2016 23:18:39] ERROR: unable to read what child say: Bad file descriptor (9)
+[07-Apr-2016 23:18:39] NOTICE: exiting, bye-bye!
+[07-Apr-2016 23:30:05] NOTICE: fpm is running, pid 4922
+[07-Apr-2016 23:30:05] NOTICE: ready to handle connections
+[07-Apr-2016 23:30:33] NOTICE: Terminating ...
+[07-Apr-2016 23:30:33] NOTICE: exiting, bye-bye!
+[07-Apr-2016 23:30:56] NOTICE: fpm is running, pid 5009
+[07-Apr-2016 23:30:56] NOTICE: ready to handle connections
+[07-Apr-2016 23:31:15] NOTICE: Terminating ...
+[07-Apr-2016 23:31:15] NOTICE: exiting, bye-bye!
+[07-Apr-2016 23:31:25] NOTICE: fpm is running, pid 5086
+[07-Apr-2016 23:31:25] NOTICE: ready to handle connections
+[07-Apr-2016 23:31:29] NOTICE: Terminating ...
+[07-Apr-2016 23:31:29] NOTICE: exiting, bye-bye!
+[07-Apr-2016 23:32:35] NOTICE: fpm is running, pid 5205
+[07-Apr-2016 23:32:35] NOTICE: ready to handle connections
+[07-Apr-2016 23:32:41] NOTICE: Terminating ...
+[07-Apr-2016 23:32:41] NOTICE: exiting, bye-bye!
+[07-Apr-2016 23:34:12] NOTICE: fpm is running, pid 5284
+[07-Apr-2016 23:34:12] NOTICE: ready to handle connections
+[07-Apr-2016 23:34:13] NOTICE: Terminating ...
+[07-Apr-2016 23:34:13] NOTICE: exiting, bye-bye!
+[07-Apr-2016 23:34:29] NOTICE: fpm is running, pid 5395
+[07-Apr-2016 23:34:29] NOTICE: ready to handle connections
+[07-Apr-2016 23:34:34] NOTICE: Terminating ...
+[07-Apr-2016 23:34:34] NOTICE: exiting, bye-bye!
+[07-Apr-2016 23:34:35] NOTICE: fpm is running, pid 5444
+[07-Apr-2016 23:34:35] NOTICE: ready to handle connections
+[07-Apr-2016 23:34:41] NOTICE: Finishing ...
+[07-Apr-2016 23:34:41] NOTICE: exiting, bye-bye!
