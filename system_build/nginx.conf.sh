@@ -1,5 +1,8 @@
 #!/bin/bash
 # 设置nginx用户,所有组
+ENV_ROOT=$(readlink -f `dirname $BASE_SOURCE[0]`/..)
+source $ENV_ROOT/bin/config/nginx/config.sh
+webPath=$ENV_ROOT/$webserver
 function userGroup(){
     echo -n "输入user:"
     read user
@@ -10,8 +13,6 @@ function userGroup(){
 }
 # 创建nginx所需要的文件
 function createDir() {
-    nowPath=`pwd`
-    webPath="$nowPath/../webserver/nginx"
     if [ -d "$webPath" ]; then
         echo "删除nginx文件:$webPath"
         sudo rm -rf "$webPath"
@@ -57,17 +58,17 @@ createDir
 
 # 设置变量
 # nginx 文件路径
-sourcePath=$(cd "$nowPath/../source/nginx"; pwd)
+sourcePath=$(cd "$ENV_ROOT/source/nginx"; pwd)
 # web服务器的路径
-webPath=$(cd "$nowPath/../webserver/nginx"; pwd)
+#webPath=$(cd "$/webserver/nginx"; pwd)
 # sbin 路径
 sbinPath=$(cd "$webPath/sbin"; pwd)
 # 配置文件路径
 confPath=$(cd "$webPath/conf"; pwd)
 # 存储nginx pid路径
-varPath=$(cd "$nowPath/../var"; pwd)
+varPath=$(cd "$ENV_ROOT/var"; pwd)
 # 日志路径
-logPath=$(cd "$nowPath/../log"; pwd)
+logPath=$(cd "$ENV_ROOT/log"; pwd)
 
 openssl=$(cd "$sourcePath/../depend/openssl"; pwd)
 zlib=$(cd "$sourcePath/../depend/zlib"; pwd)

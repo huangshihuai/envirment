@@ -1,7 +1,8 @@
-old_dir='/root/envirment'
+old_dir='/root/envirment-t'
+webserver=webserver
 binary_files=(
-    webserver/nginx/sbin/nginx
+    webserver/sbin/nginx
 )
 text_files=(
-    webserver/nginx/conf
+    webserver/conf
 )
