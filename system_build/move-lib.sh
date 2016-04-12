@@ -10,27 +10,20 @@ ENV_ROOT=$(readlink -f `dirname $BASE_SOURCE[0]`/..)
 ENV_LIB_PATH=$ENV_ROOT/lib/gcc-4.9.0
 ENV_GCONV_PATH=$ENV_LIB_PATH/gconv
 patchelf=$ENV_ROOT/bin/patchelf
-sys_GCONV_PATH=
-
-check_system() {
-    sysName=`head -n 1 /etc/issue | cut -d ' ' -f 1`
-    if [[ "$sysName"=="CentOs" ]]; then
-        $sys_GCONV_PATH="/usr/lib64/gconv"
-    else
-        $sys_GCONV_PATH="/usr/lib/x86_64-linux-gnu/gconv"
-    fi
-    if [[ ! -d $sys_GCONV_PATH ]]; then
-        echo "gcnov not fount: $sys_GCONV_PATH"
-        exit
-    fi
-}
+sys_gcnov_path=
 
 copy_gcnov() {
-    check_system
-    if [[ -d $ENV_GCONV_PATH ]]; then
+
+    sys_gcnov_path=`find /usr -name "gconv" -print`
+    if [[ ! -d $sys_gcnov_path ]]; then
+        echo "gcnov not fount:$sys_gcnov_path"
+        exit
+    fi
+
+    if [[ ! -d $ENV_GCONV_PATH ]]; then
         mkdir -p $ENV_GCONV_PATH
     fi
-    cp -r $sys_GCONV_PATH/* $ENV_GCONV_PATH
+    cp -r $sys_gcnov_path/* $ENV_GCONV_PATH
 }
 
 move_lib() {
