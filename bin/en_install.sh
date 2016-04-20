@@ -43,6 +43,7 @@ apply_files() {
 init_env() {
     ENV_ROOT=$(readlink -f `dirname $BASE_SOURCE[0]`/..)
     ENV_LIB_PATH=$ENV_ROOT/lib/gcc-4.9.0
+    ENV_GCONV_PATH=$ENV_LIB_PATH/gconv
 }
 
 install() {

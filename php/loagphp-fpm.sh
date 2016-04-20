@@ -27,7 +27,7 @@ mstart() {
     done
     echo -n "start php-fpm"
     #PHP_INI_SCAN_DIR=${ENV_ROOT}/php/etc/ext $PHP_FPM_BIN $PHP_OPTS
-    if PHP_INI_SCAN_DIR=${ENV_ROOT}/php/etc/ext $PHP_FPM_BIN $PHP_OPTS ; then
+    if GCONV_PHP=$ENV_GCOBV_PATH PHP_INI_SCAN_DIR=${ENV_ROOT}/php/etc/ext $PHP_FPM_BIN $PHP_OPTS ; then
         if wait_for 30 test -f $PHP_FPM_PID; then
             echo "done"
         else
