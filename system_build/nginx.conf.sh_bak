@@ -91,7 +91,7 @@ sudo make clean
     --pid-path="$varPath/nginx.pid" \
     --lock-path="$varPath/nginx.lock" \
     --http-client-body-temp-path="$cache/client_body" \
-    --http-fastcgi-temp-path="$cache/proxy" \
+    --http-proxy-temp-path="$cache/proxy" \
     --http-uwsgi-temp-path="$cache/uwsgi" \
     --http-scgi-temp-path="$cache/scgi" \
     --http-fastcgi-temp-path="$cache/fastcgi" \

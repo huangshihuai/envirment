@@ -1,0 +1,15 @@
+nginx_dir=(
+    conf
+    html
+    logs
+    sbin
+    cache
+)
+
+nginx_cache_dir=(
+    cache/client_body
+    cache/fastcgi
+    cache/proxy
+    cache/scgi
+    cache/uwsgi
+)

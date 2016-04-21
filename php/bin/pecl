@@ -4,10 +4,10 @@
 if test "x$PHP_PEAR_PHP_BIN" != "x"; then
   PHP="$PHP_PEAR_PHP_BIN"
 else
-  if test "/root/envirment-t/php/bin/php" = '@'php_bin'@'; then
+  if test "/root/envirment/php/bin/php" = '@'php_bin'@'; then
     PHP=php
   else
-    PHP="/root/envirment-t/php/bin/php"
+    PHP="/root/envirment/php/bin/php"
   fi
 fi
 
@@ -16,12 +16,12 @@ if test "x$PHP_PEAR_INSTALL_DIR" != "x"; then
   INCDIR=$PHP_PEAR_INSTALL_DIR
   INCARG="-d include_path=$PHP_PEAR_INSTALL_DIR"
 else
-  if test "/root/envirment-t/php/lib/php" = '@'php_dir'@'; then
+  if test "/root/envirment/php/lib/php" = '@'php_dir'@'; then
     INCDIR=`dirname $0`
     INCARG=""
   else
-    INCDIR="/root/envirment-t/php/lib/php"
-    INCARG="-d include_path=/root/envirment-t/php/lib/php"
+    INCDIR="/root/envirment/php/lib/php"
+    INCARG="-d include_path=/root/envirment/php/lib/php"
   fi
 fi
 
