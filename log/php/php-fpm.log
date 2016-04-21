@@ -110,3 +110,13 @@
 [07-Apr-2016 23:34:35] NOTICE: ready to handle connections
 [07-Apr-2016 23:34:41] NOTICE: Finishing ...
 [07-Apr-2016 23:34:41] NOTICE: exiting, bye-bye!
+[20-Apr-2016 21:46:40] NOTICE: fpm is running, pid 22883
+[20-Apr-2016 21:46:40] NOTICE: ready to handle connections
+[20-Apr-2016 21:48:39] NOTICE: Terminating ...
+[20-Apr-2016 21:48:39] NOTICE: exiting, bye-bye!
+[20-Apr-2016 21:53:15] NOTICE: fpm is running, pid 23097
+[20-Apr-2016 21:53:15] NOTICE: ready to handle connections
+[20-Apr-2016 21:53:20] NOTICE: Terminating ...
+[20-Apr-2016 21:53:20] ERROR: unable to read what child say: Bad file descriptor (9)
+[20-Apr-2016 21:53:20] ERROR: unable to read what child say: Bad file descriptor (9)
+[20-Apr-2016 21:53:20] NOTICE: exiting, bye-bye!

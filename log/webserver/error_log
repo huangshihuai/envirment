@@ -1,0 +1,20 @@
+2016/04/21 16:41:15 [notice] 17668#0: using the "epoll" event method
+2016/04/21 16:41:15 [notice] 17668#0: nginx/1.8.1
+2016/04/21 16:41:15 [notice] 17668#0: built by gcc 4.9.0 (GCC) 
+2016/04/21 16:41:15 [notice] 17668#0: OS: Linux 2.6.32-573.12.1.el6.x86_64
+2016/04/21 16:41:15 [notice] 17668#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2016/04/21 16:41:15 [notice] 17669#0: start worker processes
+2016/04/21 16:41:15 [notice] 17669#0: start worker process 17670
+2016/04/21 16:41:28 [notice] 17669#0: signal 15 (SIGTERM) received, exiting
+2016/04/21 16:41:28 [notice] 17670#0: exiting
+2016/04/21 16:41:28 [notice] 17670#0: exit
+2016/04/21 16:41:28 [notice] 17669#0: signal 17 (SIGCHLD) received
+2016/04/21 16:41:28 [notice] 17669#0: worker process 17670 exited with code 0
+2016/04/21 16:41:28 [notice] 17669#0: exit
+2016/04/21 16:55:03 [notice] 18032#0: using the "epoll" event method
+2016/04/21 16:55:03 [notice] 18032#0: nginx/1.8.1
+2016/04/21 16:55:03 [notice] 18032#0: built by gcc 4.9.0 (GCC) 
+2016/04/21 16:55:03 [notice] 18032#0: OS: Linux 2.6.32-573.12.1.el6.x86_64
+2016/04/21 16:55:03 [notice] 18032#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2016/04/21 16:55:03 [notice] 18033#0: start worker processes
+2016/04/21 16:55:03 [notice] 18033#0: start worker process 18034

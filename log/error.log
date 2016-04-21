@@ -267,3 +267,15 @@
 2016/02/04 17:57:56 [notice] 31713#0: signal process started
 2016/02/04 17:58:26 [crit] 31981#0: *1 connect() to unix:/root/envirment/var/php-cgi.sock failed (2: No such file or directory) while connecting to upstream, client: 10.0.2.2, server: localhost, request: "GET /index.php HTTP/1.1", upstream: "fastcgi://unix:/root/envirment/var/php-cgi.sock:", host: "127.0.0.1:8080"
 2016/02/04 17:58:47 [crit] 31981#0: *1 connect() to unix:/root/envirment/var/php-cgi.sock failed (2: No such file or directory) while connecting to upstream, client: 10.0.2.2, server: localhost, request: "GET /index.php HTTP/1.1", upstream: "fastcgi://unix:/root/envirment/var/php-cgi.sock:", host: "127.0.0.1:8080"
+2016/04/21 16:17:42 [emerg] 17512#0: "fastcgi_temp_path" directive invalid value in /root/envirment/webserver/conf/nginx.conf:39
+2016/04/21 16:18:03 [emerg] 17514#0: unknown directive "proxy_temp_path" in /root/envirment/webserver/conf/nginx.conf:38
+2016/04/21 16:19:11 [emerg] 17517#0: unknown directive "proxy_temp_path" in /root/envirment/webserver/conf/nginx.conf:38
+2016/04/21 16:20:49 [emerg] 17525#0: unknown directive "proxy_temp_path" in /root/envirment/webserver/conf/nginx.conf:38
+2016/04/21 16:21:39 [emerg] 17528#0: unknown directive "proxy_temp_path" in /root/envirment/webserver/conf/nginx.conf:38
+2016/04/21 16:39:24 [emerg] 17652#0: unknown directive "uwsgi_temp_path" in /root/envirment/webserver/conf/nginx.conf:39
+2016/04/21 16:39:36 [emerg] 17653#0: unknown directive "scgi_temp_path" in /root/envirment/webserver/conf/nginx.conf:40
+2016/04/21 16:39:46 [emerg] 17655#0: unknown "logid" variable
+2016/04/21 16:40:20 [emerg] 17662#0: unknown "product" variable
+2016/04/21 16:40:37 [emerg] 17663#0: unknown "subsys" variable
+2016/04/21 16:40:59 [emerg] 17665#0: unknown "tracecode" variable
+2016/04/21 16:41:07 [emerg] 17666#0: unknown "nsec" variable

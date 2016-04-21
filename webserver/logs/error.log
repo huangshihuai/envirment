@@ -1,0 +1,4 @@
+2016/04/21 16:23:13 [emerg] 17533#0: unknown directive "proxy_temp_path" in ../conf/nginx.conf:38
+2016/04/21 16:49:48 [emerg] 17932#0: unknown directive "server_name_hash_bucket_size" in ../conf/nginx.conf:41
+2016/04/21 16:49:51 [emerg] 17959#0: unknown directive "server_name_hash_bucket_size" in ../conf/nginx.conf:41
+2016/04/21 16:54:56 [emerg] 18005#0: unknown directive "server_name_hash_bucket_size" in ../conf/nginx.conf:41

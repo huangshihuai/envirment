@@ -1,4 +1,4 @@
-old_dir='/root/envirment-t'
+old_dir='/root/envirment'
 webserver=webserver
 binary_files=(
     webserver/sbin/nginx

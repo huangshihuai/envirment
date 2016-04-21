@@ -77,24 +77,14 @@ pcre=$(cd "$sourcePath/../depend/pcre"; pwd)
 # nginx 的其他模块
 upload_progress=$(cd "$sourcePath/../depend/nginx-upload-progress-module"; pwd)
 upstream_fair=$(cd "$sourcePath/../depend/nginx-upstream-fair"; pwd)
+concat_module=$(cd "$sourcePath/../depend/concat_module"; pwd)
+headers_more_nginx_module=$(cd "$sourcePath/../depend/headers-more-nginx-module"; pwd)
 
 cd "$sourcePath"
 # nginx-1.8.0 删除Makefile文件以及objs文件夹
 sudo make clean
-./configure --prefix=$webPath \
-    --sbin-path="$sbinPath/nginx" \
-    --conf-path="$confPath/nginx.conf" \
-    --error-log-path="$logPath/error.log" \
-    --http-log-path="$logPath/access.log" \
-    --pid-path="$varPath/nginx.pid" \
-    --lock-path="$varPath/nginx.lock" \
-    --http-client-body-temp-path="$cache/client_body" \
-    --http-fastcgi-temp-path="$cache/proxy" \
-    --http-uwsgi-temp-path="$cache/uwsgi" \
-    --http-scgi-temp-path="$cache/scgi" \
-    --http-fastcgi-temp-path="$cache/fastcgi" \
-    --user="$user" \
-    --group="$group" \
+./configure --prefix=.. \
+    --with-cc-opt=-Wno-error \
     --with-ipv6 \
     --without-select_module \
     --without-poll_module \
@@ -130,9 +120,13 @@ sudo make clean
     --without-http_scgi_module \
     --without-http_split_clients_module \
     --without-http_upstream_ip_hash_module \
+    --without-http_upstream_hash_module \
     --without-http_uwsgi_module \
     --add-module="$upload_progress" \
-    --add-module="$upstream_fair"
+    --add-module="$upstream_fair" \
+    --add-module="$concat_module" \
+    --add-module="$headers_more_nginx_module"
+
 
 sudo make && make install
 cd "$nowPath"
