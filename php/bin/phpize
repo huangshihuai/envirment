@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Variable declaration
-prefix='/root/envirment/php'
-datarootdir='/root/envirment/php/php'
+prefix='/root/envirment-t/php'
+datarootdir='/root/envirment-t/php/php'
 exec_prefix="`eval echo ${prefix}`"
 phpdir="`eval echo ${exec_prefix}/lib/php`/build"
 includedir="`eval echo ${prefix}/include`/php"
@@ -152,7 +152,7 @@ phpize_copy_files()
 phpize_replace_prefix()
 {
   $SED \
-  -e "s#/root/envirment/php#$prefix#" \
+  -e "s#/root/envirment-t/php#$prefix#" \
   < "$phpdir/phpize.m4" > configure.in
 }
 

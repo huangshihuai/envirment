@@ -31,3 +31,61 @@
 2016/04/21 21:02:34 [notice] 7793#0: getrlimit(RLIMIT_NOFILE): 1024:4096
 2016/04/21 21:02:34 [notice] 7794#0: start worker processes
 2016/04/21 21:02:34 [notice] 7794#0: start worker process 7795
+2016/04/21 21:07:01 [notice] 7795#0: signal 15 (SIGTERM) received, exiting
+2016/04/21 21:07:01 [notice] 7794#0: signal 17 (SIGCHLD) received
+2016/04/21 21:07:01 [notice] 7794#0: signal 15 (SIGTERM) received, exiting
+2016/04/21 21:07:01 [notice] 7795#0: exiting
+2016/04/21 21:07:01 [notice] 7795#0: exit
+2016/04/21 21:07:01 [notice] 7794#0: signal 17 (SIGCHLD) received
+2016/04/21 21:07:01 [notice] 7794#0: worker process 7795 exited with code 0
+2016/04/21 21:07:01 [notice] 7794#0: exit
+2016/04/21 21:23:35 [notice] 1993#0: using the "epoll" event method
+2016/04/21 21:23:35 [notice] 1993#0: nginx/1.8.1
+2016/04/21 21:23:35 [notice] 1993#0: built by gcc 4.9.0 (GCC) 
+2016/04/21 21:23:35 [notice] 1993#0: OS: Linux 2.6.32-573.12.1.el6.x86_64
+2016/04/21 21:23:35 [notice] 1993#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2016/04/21 21:23:35 [notice] 1994#0: start worker processes
+2016/04/21 21:23:35 [notice] 1994#0: start worker process 1995
+2016/04/21 21:23:52 [notice] 1994#0: signal 1 (SIGHUP) received, reconfiguring
+2016/04/21 21:23:52 [notice] 1994#0: reconfiguring
+2016/04/21 21:23:52 [notice] 1994#0: using the "epoll" event method
+2016/04/21 21:23:52 [notice] 1994#0: start worker processes
+2016/04/21 21:23:52 [notice] 1994#0: start worker process 2051
+2016/04/21 21:23:52 [notice] 1995#0: gracefully shutting down
+2016/04/21 21:23:52 [notice] 1995#0: exiting
+2016/04/21 21:23:52 [notice] 1995#0: exit
+2016/04/21 21:23:52 [notice] 1994#0: signal 17 (SIGCHLD) received
+2016/04/21 21:23:52 [notice] 1994#0: worker process 1995 exited with code 0
+2016/04/21 21:23:52 [notice] 1994#0: signal 29 (SIGIO) received
+2016/04/21 21:23:56 [notice] 1994#0: signal 15 (SIGTERM) received, exiting
+2016/04/21 21:23:56 [notice] 2051#0: exiting
+2016/04/21 21:23:56 [notice] 2051#0: exit
+2016/04/21 21:23:56 [notice] 1994#0: signal 17 (SIGCHLD) received
+2016/04/21 21:23:56 [notice] 1994#0: worker process 2051 exited with code 0
+2016/04/21 21:23:56 [notice] 1994#0: exit
+2016/04/21 21:39:40 [notice] 3013#0: using the "epoll" event method
+2016/04/21 21:39:40 [notice] 3013#0: nginx/1.8.1
+2016/04/21 21:39:40 [notice] 3013#0: built by gcc 4.9.0 (GCC) 
+2016/04/21 21:39:40 [notice] 3013#0: OS: Linux 2.6.32-573.12.1.el6.x86_64
+2016/04/21 21:39:40 [notice] 3013#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2016/04/21 21:39:40 [notice] 3014#0: start worker processes
+2016/04/21 21:39:40 [notice] 3014#0: start worker process 3015
+2016/04/21 21:39:54 [notice] 3014#0: signal 15 (SIGTERM) received, exiting
+2016/04/21 21:39:54 [notice] 3015#0: exiting
+2016/04/21 21:39:54 [notice] 3015#0: exit
+2016/04/21 21:39:54 [notice] 3014#0: signal 17 (SIGCHLD) received
+2016/04/21 21:39:54 [notice] 3014#0: worker process 3015 exited with code 0
+2016/04/21 21:39:54 [notice] 3014#0: exit
+2016/04/21 21:40:01 [notice] 3047#0: using the "epoll" event method
+2016/04/21 21:40:01 [notice] 3047#0: nginx/1.8.1
+2016/04/21 21:40:01 [notice] 3047#0: built by gcc 4.9.0 (GCC) 
+2016/04/21 21:40:01 [notice] 3047#0: OS: Linux 2.6.32-573.12.1.el6.x86_64
+2016/04/21 21:40:01 [notice] 3047#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2016/04/21 21:40:01 [notice] 3048#0: start worker processes
+2016/04/21 21:40:01 [notice] 3048#0: start worker process 3049
+2016/04/21 21:40:05 [notice] 3048#0: signal 15 (SIGTERM) received, exiting
+2016/04/21 21:40:05 [notice] 3049#0: exiting
+2016/04/21 21:40:05 [notice] 3049#0: exit
+2016/04/21 21:40:05 [notice] 3048#0: signal 17 (SIGCHLD) received
+2016/04/21 21:40:05 [notice] 3048#0: worker process 3049 exited with code 0
+2016/04/21 21:40:05 [notice] 3048#0: exit

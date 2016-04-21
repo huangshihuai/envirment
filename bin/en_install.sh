@@ -34,6 +34,11 @@ apply_files() {
         dir=$ENV_ROOT/$dir
         if [[ -d $dir ]]; then
             local files=`find $dir -type f`
+            if [[ $files != '' ]]; then
+                for file in ${files[*]}; do
+                    $2 $file
+                done
+            fi
         elif [[ -f $dir ]]; then
             $2 $dir
         fi

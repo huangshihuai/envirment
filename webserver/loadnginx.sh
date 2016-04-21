@@ -49,5 +49,29 @@ nstop(){
     fi
 }
 
-nstop
-nstart
+case "$1" in
+    start)
+        nstop
+        nstart
+        ;;
+    stop)
+        nstop
+        ;;
+    restart)
+        nstop
+        nstart
+        ;;
+    reload)
+        if GCONV_PATH=$ENV_GCONV_PATH $NGINX_BIN -s reload; then
+            echo "reload ok"
+        else
+            echo "reload fail"
+        fi
+        ;;
+    chkconfig)
+        GCONV_PATH=$ENV_GCONV_PATH $NGINX_BIN -t
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart|reload|chkconfig}"
+        ;;
+esac

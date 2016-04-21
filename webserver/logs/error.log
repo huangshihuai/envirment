@@ -5,3 +5,4 @@
 2016/04/21 21:00:06 [emerg] 7744#0: unknown directive "server_name_hash_bucket_size" in ../conf/nginx.conf:42
 2016/04/21 21:01:45 [emerg] 7783#0: unexpected "}" in ../conf/nginx.conf:78
 2016/04/21 21:02:17 [emerg] 7788#0: unknown "logid" variable
+2016/04/21 21:23:52 [notice] 2050#0: signal process started

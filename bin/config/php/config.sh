@@ -1,4 +1,4 @@
-old_dir=/root/envirment
+old_dir=/root/envirment-t
 binary_files=(
     php/bin/php
     php/bin/php-cgi
