@@ -1,0 +1,3 @@
+sources:/source/depend/freetype
+install:/depend/freetype
+libgd:--with-freetype=.gdout --with-fontconfig=.gdout
