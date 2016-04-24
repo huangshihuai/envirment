@@ -1,3 +1,0 @@
-sources:/../source/depend/gmp
-install:/../depend/gmp
-libwith:--with-gmp=.out

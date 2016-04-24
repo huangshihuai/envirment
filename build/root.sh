@@ -1,1 +1,0 @@
-ENRoot=$(cd ..; pwd)

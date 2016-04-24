@@ -1,3 +1,0 @@
-sources:/source/depend/zlib
-install:/depend/zlib
-libwith:--with-zlib=.out
