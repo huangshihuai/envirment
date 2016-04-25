@@ -1,0 +1,10 @@
+unpack_files=(
+    application
+    bin
+    lib
+    log
+    php
+    var
+    webroot
+    webserver
+)
