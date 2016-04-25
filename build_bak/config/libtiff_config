@@ -1,3 +1,0 @@
-sources:/source/depend/tiff
-install:/depend/libtiff
-libgd:--with-tiff=.gdout

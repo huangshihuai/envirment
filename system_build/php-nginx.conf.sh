@@ -57,7 +57,6 @@ mkdir "php-build" && cd "php-build"
     --enable-sysvsem \
     --enable-pcntl \
     --enable-zip \
-    --enable-gd-jis-conv \
     --enable-ftp \
     --enable-calendar \
     --enable-exif \
@@ -80,8 +79,6 @@ mkdir "php-build" && cd "php-build"
     --with-xpm-dir \
     --with-gettext \
     --with-iconv-dir \
-    --with-fpm-user=www \
-    --with-fpm-group=www \
     $debug
 if [ -f "Makefile" ]; then
     make && make install

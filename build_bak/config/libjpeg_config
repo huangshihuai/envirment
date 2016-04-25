@@ -1,3 +1,0 @@
-sources:/source/depend/jpeg
-install:/depend/libjpeg
-libgd:--with-jpeg=.gdout
