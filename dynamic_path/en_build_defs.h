@@ -5,6 +5,12 @@
 #undef PEAR_INSTALLDIR
 #define PEAR_INSTALLDIR         __get_dynamic_php_mosaics_path("", "/lib/php", EN_DEF_PEAR_INSTALLDIR)
 
+//#undef PHP_INCLUDE_PATH
+//#define PHP_INCLUDE_PATH	__get_dynamic_php_mosaics_path(".:", "/lib/php", EN_DEF_PHP_INCLUDE_PATH)
+
+//#undef PHP_EXTENSION_DIR
+//#define PHP_EXTENSION_DIR       __get_dynamic_php_mosaics_path("", "/etc", EN_DEF_PHP_EXTENSION_DIR)
+
 #undef PHP_PREFIX
 #define PHP_PREFIX              __get_dynamic_php_mosaics_path("", "", EN_DEF_PHP_PREFIX)
 
