@@ -86,18 +86,18 @@ function makeInstall() {
     ../configure #> /dev/null 2>&1
     if [ "$?" != "0" ]; then
         echo "configure error,this page:$page"
-        return
+        exit
     fi
     sudo make clean > /dev/null 2>&1
     make #>/dev/null 2>&1
     if [ "$?" != "0" ]; then
         echo "make error, this page:$page"
-        return;
+        exit
     fi
-    sudo make install >/dev/null 2>&1
+    sudo make install
     if [ "$?" != "0" ]; then
         echo "make install error, this page:$page"
-        return
+        exit
     fi
  }
 

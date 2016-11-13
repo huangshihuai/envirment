@@ -7,6 +7,7 @@ function getOpensslConfig() {
     opensslInstall="$localPath""$install"
     if [ ! -d "$opensslInstall" ];then
         echo "openssl install path not fount: $opensslInstall"
+        echo "create dir:"`dirname $opensslInstall`
         exit
     fi
     opensslInstall=$(cd "$opensslInstall"; pwd)
