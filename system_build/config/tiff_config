@@ -1,3 +1,3 @@
 sources:/source/depend/tiff
-install:/depend/tiff
+install:/../depend/tiff
 libgd:--with-tiff=.gdout

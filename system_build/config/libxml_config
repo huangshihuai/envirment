@@ -1,2 +1,2 @@
 sources:/source/depend/libxml
-install:/depend/libxml
+install:/../depend/libxml
