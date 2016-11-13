@@ -1,5 +1,5 @@
-import os
 #coding=utf-8
+import os
 # 存储shell的名字
 shName=[
         'sys_php.sh',
