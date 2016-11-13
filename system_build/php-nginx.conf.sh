@@ -28,7 +28,6 @@ fi
 
 openssl=$(cd "$dir/../../depend/openssl"; pwd)
 curl=$(cd "$dir/../../depend/curl"; pwd)
-t1lib=$(cd "$dir/../../depend/t1lib"; pwd)
 zlib=$(cd "$dir/../../depend/zlib"; pwd)
 xml=$(cd "$dir/../../depend/xml"; pwd)
 jpeg=$(cd "$dir/../../depend/jpeg"; pwd)
@@ -64,22 +63,19 @@ libmcrypt="$mcrypt"
     --with-zlib="$zlib" \
     --with-curl="$curl" \
     --with-mcrypt="$libmcrypt" \
-    --with-t1lib=$t1lib \
     --with-freetype-dir=$freetype \
     --with-jpeg-dir="$jpeg" \
     --with-png-dir="$png" \
     --with-libxml-dir="$xml" \
-    --with-mysql \
     --with-pdo-mysql \
     --with-xpm-dir \
     --with-gettext \
     --with-iconv-dir \
     $debug
 
-echo 'cd '`pwd`
-echo 'run: make && make install'
-make && make install
-#if [ -f "Makefile" ]; then
-#    make && make install
-#fi
-#cd $dir
+#echo 'cd '`pwd`
+#echo 'run: make && make install'
+if [ -f "Makefile" ]; then
+    make && make install
+fi
+cd $dir
