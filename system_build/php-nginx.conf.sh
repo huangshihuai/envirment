@@ -4,7 +4,7 @@ function setDebug() {
     do
         read answer
         if [ $answer = "no" ];then
-            debug="--disable-debug"
+            debug=""
             break
         elif [ $answer = "yes" ];then
             debug="--enable-debug"
@@ -26,16 +26,16 @@ if [ -f "Makefile" ]; then
     rm "Makefile"
 fi
 
-openssl=$(cd "$dir/../depend/openssl"; pwd)
-curl=$(cd "$dir/../depend/curl"; pwd)
-t1lib=$(cd "$dir/../depend/t1lib"; pwd)
-zlib=$(cd "$dir/../depend/zlib"; pwd)
-xml=$(cd "$dir/../depend/xml"; pwd)
-jpeg=$(cd "$dir/../depend/jpeg"; pwd)
-png=$(cd "$dir/../depend/png"; pwd)
+openssl=$(cd "$dir/../../depend/openssl"; pwd)
+curl=$(cd "$dir/../../depend/curl"; pwd)
+t1lib=$(cd "$dir/../../depend/t1lib"; pwd)
+zlib=$(cd "$dir/../../depend/zlib"; pwd)
+xml=$(cd "$dir/../../depend/xml"; pwd)
+jpeg=$(cd "$dir/../../depend/jpeg"; pwd)
+png=$(cd "$dir/../../depend/png"; pwd)
 #xpm=$(cd "$dir/../depend/xpm"; pwd)
-freetype=$(cd "$dir/../depend/freetype"; pwd)
-mcrypt=$(cd "$dir/../depend/mcrypt"; pwd)
+freetype=$(cd "$dir/../../depend/freetype"; pwd)
+mcrypt=$(cd "$dir/../../depend/mcrypt"; pwd)
 libmcrypt="$mcrypt"
 
 # 编译所有的扩展
@@ -78,6 +78,7 @@ libmcrypt="$mcrypt"
 
 echo 'cd '`pwd`
 echo 'run: make && make install'
+make && make install
 #if [ -f "Makefile" ]; then
 #    make && make install
 #fi
