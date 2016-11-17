@@ -28,6 +28,7 @@ int __get_dynamic_php_prefix_path() {
         return __en_ok_php_path;
     }
     char buffer[PATH_MAX] = {0};
+    char gconv[PATH_MAX + 255] = {0};
     if (readlink("/proc/self/exe", buffer, PATH_MAX) < 0) {
         return __en_error_php_path_self;
     }
@@ -39,7 +40,16 @@ int __get_dynamic_php_prefix_path() {
     if (dirname(buffer) != buffer) {
         return __en_error_php_path_prefix;
     }
+    // 保存 php目录
     snprintf(__en_php_prefix, PATH_MAX, "%s", buffer);
+
+    // 获取到PHP目录:prefix: $ENVIRMENT
+    if (dirname(buffer) != buffer) {
+        return __en_error_EN_path;
+    }
+    snprintf(gconv, PATH_MAX + 255, "GCONV_PATH=%s/lib/gcc-4.9.0/gconv", buffer);
+    putenv(gconv);
+    printf("%s\n", gconv);
     return __en_ok_php_path;
 }
 
@@ -106,6 +116,8 @@ void __en_error_msg(const __en_path_status_type type) {
         case __en_error_php_path_prefix:
             printf("Warning: PHP prefix path is truncated. PHP file not found\n");
             break;
+        case __en_error_EN_path:
+            printf("Waring: envirment path is truncated.");
         default:
             break;
     }

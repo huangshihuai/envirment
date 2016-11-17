@@ -12,8 +12,8 @@ int main() {
 
 void test1(void) {
     printf("%s\n", PEAR_INSTALLDIR);
-    printf("%s\n", PHP_INCLUDE_PATH);
-    printf("%s\n", PHP_EXTENSION_DIR);
+//    printf("%s\n", PHP_INCLUDE_PATH);
+//    printf("%s\n", PHP_EXTENSION_DIR);
     printf("%s\n", PHP_PREFIX);
     printf("%s\n", PHP_BINDIR);
     printf("%s\n", PHP_SBINDIR);

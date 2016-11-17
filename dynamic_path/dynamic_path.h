@@ -1,6 +1,6 @@
 #ifndef DYNAMIC_PATH_H
 #define DYNAMIC_PATH_H
-
+#include <stdlib.h>
 /**
  * 定义路径
  * 防止内存泄漏(策略选择):
@@ -29,7 +29,8 @@ typedef enum __en_path_status_type_enum
     __en_ok_php_path,           // PHP安装路径存在
     __en_error_php_path_self,   // readlink获取失败
     __en_error_php_path_bin,    // 上一层目录不是bin
-    __en_error_php_path_prefix  // 安装目录获取失败
+    __en_error_php_path_prefix, // 安装目录获取失败
+    __en_error_EN_path          // ENVIRMENT环境目录不存在
 } __en_path_status_type;
 
 typedef enum __en_php_define_type {
